@@ -1,16 +1,3 @@
-<?php
-
-// require_once __DIR__ . '/vendor/autoload.php';
-// $mpdf = new \Mpdf\Mpdf();
-
-// ob_start(); 
-
-//////////////////////////////////////////////////////////////  END PDF  //////////////////////////////////////////////////
-
-use Mpdf\Tag\Br;
-
-?>
-
 <html>
 
 <head>
@@ -447,13 +434,3 @@ use Mpdf\Tag\Br;
 </body>
 
 </html>
-<?php
-//////////////////////////////////////////////////////////////  END PDF  //////////////////////////////////////////////////
-
-
-// $html = ob_get_contents();
-// ob_end_clean(); 
-
-// $mpdf->WriteHTML($html);
-// $mpdf->Output();
-?>
