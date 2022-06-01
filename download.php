@@ -62,7 +62,9 @@
     </style>
 
 </head>
-
+<?php
+    $sum  =  $_POST['14'] + $_POST['24'] + $_POST['34'] + $_POST['44'] + $_POST['54'] + $_POST['64'] + $_POST['74'] + $_POST['84'] + $_POST['94'] + $_POST['04'];
+?>
 <body>
     <table cellspacing="0" border="0">
         <colgroup width="344"></colgroup>
@@ -124,7 +126,7 @@
                 </b></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3594;&#3639;&#3656;&#3629;&#3610;&#3619;&#3636;&#3625;&#3633;&#3607;/&#3594;&#3639;&#3656;&#3629;&#3615;&#3619;&#3637;&#3649;&#3621;&#3609;&#3595;&#3660;]</td>
+            <td height="19" align="left" rowspan="6" valign=TOP><?php echo nl2br($_POST['textarea1']) ?></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -133,16 +135,14 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[C&#3607;&#3637;&#3656;&#3629;&#3618;&#3641;&#3656;]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="center" valign=bottom>&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;</td>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="41760" sdnum="1033;0;M/D/YYYY">5/1/2014</td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="41760" sdnum="1033;0;M/D/YYYY"><?php echo  $_POST['2']?></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3648;&#3621;&#3586;&#3611;&#3619;&#3632;&#3592;&#3635;&#3605;&#3633;&#3623;&#3612;&#3641;&#3657;&#3648;&#3626;&#3637;&#3618;&#3616;&#3634;&#3625;&#3637;]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -151,7 +151,6 @@
             <td align="center" valign=bottom sdnum="1033;0;M/D/YYYY"><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>&#3650;&#3607;&#3619;: [000-000-0000]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -160,7 +159,6 @@
             <td align="center" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>&#3649;&#3615;&#3655;&#3585;&#3595;&#3660;: [000-000-0000]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -169,7 +167,6 @@
             <td align="center" valign=bottom sdnum="1033;0;M/D/YYYY"><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -189,7 +186,7 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3594;&#3639;&#3656;&#3629;]</td>
+            <td height="19" align="left" rowspan="6" valign=TOP><?php echo nl2br($_POST['textarea2']) ?></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -198,7 +195,6 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3594;&#3639;&#3656;&#3629;&#3610;&#3619;&#3636;&#3625;&#3633;&#3607;]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -207,7 +203,6 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3607;&#3637;&#3656;&#3629;&#3618;&#3641;&#3656;]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -216,7 +211,6 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3648;&#3621;&#3586;&#3612;&#3641;&#3657;&#3648;&#3626;&#3637;&#3618;&#3616;&#3634;&#3625;&#3637;]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -225,7 +219,6 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom>[&#3627;&#3617;&#3634;&#3618;&#3648;&#3621;&#3586;&#3650;&#3607;&#3619;&#3624;&#3633;&#3614;&#3607;&#3660;]</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -234,7 +227,6 @@
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -257,100 +249,100 @@
                 </b></td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom>&#3594;&#3639;&#3656;&#3629;&#3610;&#3619;&#3636;&#3585;&#3634;&#3619; </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;">1</td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;">250</td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> 250.00 </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['11']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['12']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['13']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['14']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2">&#3648;&#3591;&#3639;&#3656;&#3629;&#3609;&#3652;&#3586;&#3629;&#3639;&#3656;&#3609;&#3654; &#3606;&#3657;&#3634;&#3617;&#3637; </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['21']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['22']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['23']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['24']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['31']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['32']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['33']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['34']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['41']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['42']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['43']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['44']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['51']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['52']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['53']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['54']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['61']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['62']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['63']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['64']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['71']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['72']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['73']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['74']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['81']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['82']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['83']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['84']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['91']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['92']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['93']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['94']; ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['01']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['02']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['03']; ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['04']; ?> </td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)">  </td>
+        </tr>
+        <tr>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
+        </tr>
+        <tr>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)">  </td>
         </tr>
         <tr>
             <td style="border-top: 1px solid #000000" height="20" align="left" valign=bottom><br></td>
@@ -361,7 +353,7 @@
             </td>
             <td style="border-top: 1px solid #000000" align="left" valign=bottom>&#3619;&#3623;&#3617;&#3648;&#3611;&#3655;&#3609;&#3648;&#3591;&#3636;&#3609; </td>
             <td style="border-top: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> 250.00 </td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo $sum; ?> </td>
         </tr>
         <tr>
             <td style="border-top: 1px solid #3b4e87; border-bottom: 1px solid #3b4e87; border-left: 1px solid #3b4e87; border-right: 1px solid #3b4e87" colspan=3 height="20" align="left" valign=bottom bgcolor="#F0B57A"><b>
@@ -371,8 +363,8 @@
                 <font color="#FFFFFF"><br></font>
             </td>
             <td align="left" valign=bottom>&#3626;&#3656;&#3623;&#3609;&#3621;&#3604; (&#3606;&#3657;&#3634;&#3617;&#3637;)</td>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A" sdval="0.05" sdnum="1033;0;0%">5%</td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="12.5" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> 12.50 </td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A" sdval="0.05" sdnum="1033;0;0%"> - </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="12.5" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>1. &#3627;&#3634;&#3585;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;&#3605;&#3657;&#3629;&#3591;&#3585;&#3634;&#3619; &#3627;&#3633;&#3585;&#3616;&#3634;&#3625;&#3637; &#3603; &#3607;&#3637;&#3656;&#3592;&#3656;&#3634;&#3618; &#3585;&#3619;&#3640;&#3603;&#3634;&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;&#3612;&#3641;&#3657;&#3586;&#3634;&#3618;&#3650;&#3604;&#3618;&#3605;&#3619;&#3591; </td>
