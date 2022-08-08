@@ -62,9 +62,25 @@
     </style>
 
 </head>
-<?php
-    $sum  =  $_POST['14'] + $_POST['24'] + $_POST['34'] + $_POST['44'] + $_POST['54'] + $_POST['64'] + $_POST['74'] + $_POST['84'] + $_POST['94'] + $_POST['04'];
-?>
+
+    <?php
+    if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
+    if( !empty($_POST['24']) ){$A24 = $_POST['24'] ;}else{$A24=0;}
+    if( !empty($_POST['34']) ){$A34 = $_POST['34'] ;}else{$A34=0;}
+    if( !empty($_POST['44']) ){$A44 = $_POST['44'] ;}else{$A44=0;}
+    if( !empty($_POST['54']) ){$A54 = $_POST['54'] ;}else{$A54=0;}
+    if( !empty($_POST['64']) ){$A64 = $_POST['64'] ;}else{$A64=0;}
+    if( !empty($_POST['74']) ){$A74 = $_POST['74'] ;}else{$A74=0;}
+    if( !empty($_POST['84']) ){$A84 = $_POST['84'] ;}else{$A84=0;}
+    if( !empty($_POST['94']) ){$A94 = $_POST['94'] ;}else{$A94=0;}
+    if( !empty($_POST['04']) ){$A04 = $_POST['04'] ;}else{$A04=0;}
+    $sum  =  $A14 + $A24 + $A34 + $A44 + $A54 + $A64 + $A74 + $A84 + $A94 + $A04 ;
+    $vat = $sum * 7/107;
+    $price_nv = $sum * 100/107;
+
+    ($A14 >= 0 ? $A14 : '')
+    ?>
+
 <body>
     <table cellspacing="0" border="0">
         <colgroup width="344"></colgroup>
@@ -126,7 +142,7 @@
                 </b></td>
         </tr>
         <tr>
-            <td height="19" align="left" rowspan="6" valign=TOP><?php echo nl2br($_POST['textarea1']) ?></td>
+            <td height="19" align="left" rowspan="6" valign=TOP><?php echo nl2br($_POST['textarea1']); ?></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -140,7 +156,7 @@
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="center" valign=bottom>&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;</td>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="41760" sdnum="1033;0;M/D/YYYY"><?php echo  $_POST['2']?></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="41760" sdnum="1033;0;M/D/YYYY"><?php echo $_POST['d2']; ?></td>
         </tr>
         <tr>
             <td align="left" valign=bottom><br></td>
@@ -245,68 +261,68 @@
                     <font face="Arial" color="#FFFFFF">&#3619;&#3634;&#3588;&#3634;/&#3627;&#3609;&#3656;&#3623;&#3618;</font>
                 </b></td>
             <td style="border-top: 1px solid #3b4e87; border-bottom: 1px solid #3b4e87; border-right: 1px solid #3b4e87" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">AMOUNT</font>
+                    <font face="Arial" color="#FFFFFF">ราคารวม</font>
                 </b></td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['11']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['12']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['13']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['14']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['11']) ? $_POST['11'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['12']) ? $_POST['12'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['13']) ? $_POST['13'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['14']) ? $_POST['14'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['21']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['22']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['23']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['24']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['21']) ? $_POST['21'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['22']) ? $_POST['22'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['23']) ? $_POST['23'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['24']) ? $_POST['24'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['31']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['32']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['33']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['34']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['31']) ? $_POST['31'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['32']) ? $_POST['32'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['33']) ? $_POST['33'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['34']) ? $_POST['34'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['41']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['42']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['43']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['44']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['41']) ? $_POST['41'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['42']) ? $_POST['42'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['43']) ? $_POST['43'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['44']) ? $_POST['44'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['51']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['52']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['53']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['54']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['51']) ? $_POST['51'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['52']) ? $_POST['52'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['53']) ? $_POST['53'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['54']) ? $_POST['54'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['61']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['62']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['63']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['64']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['61']) ? $_POST['61'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['62']) ? $_POST['62'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['63']) ? $_POST['63'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['64']) ? $_POST['64'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['71']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['72']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['73']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['74']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['71']) ? $_POST['71'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['72']) ? $_POST['72'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['73']) ? $_POST['73'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['74']) ? $_POST['74'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['81']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['82']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['83']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['84']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['81']) ? $_POST['81'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['82']) ? $_POST['82'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['83']) ? $_POST['83'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['84']) ? $_POST['84'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  $_POST['91']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;"><?php echo  $_POST['92']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;"><?php echo  $_POST['93']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo  $_POST['94']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['91']) ? $_POST['91'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['92']) ? $_POST['92'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['93']) ? $_POST['93'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['94']) ? $_POST['94'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  $_POST['01']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['02']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" sdnum="1033;" bgcolor="#F2F2F2"><?php echo  $_POST['03']; ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)" bgcolor="#F2F2F2"> <?php echo  $_POST['04']; ?> </td>
+            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['01']) ? $_POST['01'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['02']) ? $_POST['02'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['03']) ? $_POST['03'] : ''); ?></td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['04']) ? $_POST['04'] : ''); ?> </td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
@@ -353,7 +369,7 @@
             </td>
             <td style="border-top: 1px solid #000000" align="left" valign=bottom>&#3619;&#3623;&#3617;&#3648;&#3611;&#3655;&#3609;&#3648;&#3591;&#3636;&#3609; </td>
             <td style="border-top: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo $sum; ?> </td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo number_format($sum,2); ?> </td>
         </tr>
         <tr>
             <td style="border-top: 1px solid #3b4e87; border-bottom: 1px solid #3b4e87; border-left: 1px solid #3b4e87; border-right: 1px solid #3b4e87" colspan=3 height="20" align="left" valign=bottom bgcolor="#F0B57A"><b>
@@ -369,23 +385,23 @@
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>1. &#3627;&#3634;&#3585;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;&#3605;&#3657;&#3629;&#3591;&#3585;&#3634;&#3619; &#3627;&#3633;&#3585;&#3616;&#3634;&#3625;&#3637; &#3603; &#3607;&#3637;&#3656;&#3592;&#3656;&#3634;&#3618; &#3585;&#3619;&#3640;&#3603;&#3634;&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;&#3612;&#3641;&#3657;&#3586;&#3634;&#3618;&#3650;&#3604;&#3618;&#3605;&#3619;&#3591; </td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom>&#3619;&#3634;&#3588;&#3634;&#3627;&#3621;&#3633;&#3591;&#3627;&#3633;&#3585;&#3626;&#3656;&#3623;&#3609;&#3621;&#3604; </td>
+            <td align="left" valign=bottom> ราคาก่อน VAT </td>
             <td align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="237.5" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> 237.50 </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom> <?php echo number_format($price_nv,2); ?> </td> 
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>2 &#3585;&#3619;&#3640;&#3603;&#3634;&#3594;&#3635;&#3619;&#3632;&#3648;&#3591;&#3636;&#3609;&#3612;&#3656;&#3634;&#3609;&#3594;&#3656;&#3629;&#3591;&#3607;&#3634;&#3591;&#3594;&#3635;&#3619;&#3632;&#3648;&#3591;&#3636;&#3609;&#3586;&#3629;&#3591; VEZ (&#3623;&#3637;&#3629;&#3637;&#3595;&#3637;&#3656;) </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom>VAT </td>
             <td align="center" valign=bottom sdval="0.07" sdnum="1033;0;0%">7%</td>
-            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="16.625" sdnum="1033;0;#,##0.00_);\(#,##0.00\)">16.63 </td>
+            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom ><?php echo number_format($vat,2); ?></td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>3. &#3627;&#3634;&#3585;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;&#3605;&#3657;&#3629;&#3591;&#3585;&#3634;&#3619;&#3651;&#3610;&#3648;&#3626;&#3619;&#3655;&#3592;&#3619;&#3633;&#3610;&#3648;&#3591;&#3636;&#3609; &#3585;&#3619;&#3640;&#3603;&#3634;&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;&#3612;&#3641;&#3657;&#3586;&#3634;&#3618;&#3650;&#3604;&#3618;&#3605;&#3619;&#3591; </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><b>&#3619;&#3623;&#3617;&#3648;&#3591;&#3636;&#3609;&#3607;&#3633;&#3657;&#3591;&#3626;&#3636;&#3657;&#3609; </b></td>
             <td align="center" valign=bottom><b><br></b></td>
-            <td align="right" valign=bottom bgcolor="#D3D9EC" sdval="254.125" sdnum="1033;0;_([$THB] * #,##0.00_);_([$THB] * \(#,##0.00\);_([$THB] * -??_);_(@_)"><b> THB 254.13 </b></td>
+            <td align="right" valign=bottom bgcolor="#D3D9EC"><b> THB <?php echo number_format($sum,2); ?></b></td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>4. &#3585;&#3635;&#3627;&#3609;&#3604;&#3618;&#3639;&#3609;&#3619;&#3634;&#3588;&#3634;&#3616;&#3634;&#3618;&#3651;&#3609; 15 &#3623;&#3633;&#3609; </td>
