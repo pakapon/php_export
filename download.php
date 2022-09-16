@@ -70,15 +70,57 @@
     if( !empty($_POST['44']) ){$A44 = $_POST['44'] ;}else{$A44=0;}
     if( !empty($_POST['54']) ){$A54 = $_POST['54'] ;}else{$A54=0;}
     if( !empty($_POST['64']) ){$A64 = $_POST['64'] ;}else{$A64=0;}
-    if( !empty($_POST['74']) ){$A74 = $_POST['74'] ;}else{$A74=0;}
-    if( !empty($_POST['84']) ){$A84 = $_POST['84'] ;}else{$A84=0;}
-    if( !empty($_POST['94']) ){$A94 = $_POST['94'] ;}else{$A94=0;}
-    if( !empty($_POST['04']) ){$A04 = $_POST['04'] ;}else{$A04=0;}
-    $sum  =  $A14 + $A24 + $A34 + $A44 + $A54 + $A64 + $A74 + $A84 + $A94 + $A04 ;
+    // if( !empty($_POST['74']) ){$A74 = $_POST['74'] ;}else{$A74=0;}
+    // if( !empty($_POST['84']) ){$A84 = $_POST['84'] ;}else{$A84=0;}
+    // if( !empty($_POST['94']) ){$A94 = $_POST['94'] ;}else{$A94=0;}
+    // if( !empty($_POST['04']) ){$A04 = $_POST['04'] ;}else{$A04=0;}
+
+    if( !empty($_POST['16']) ){$A16 = $_POST['16'] ;}else{$A14=0;}
+    if( !empty($_POST['26']) ){$A26 = $_POST['26'] ;}else{$A24=0;}
+    if( !empty($_POST['36']) ){$A36 = $_POST['36'] ;}else{$A34=0;}
+    if( !empty($_POST['46']) ){$A46 = $_POST['46'] ;}else{$A44=0;}
+    if( !empty($_POST['56']) ){$A56 = $_POST['56'] ;}else{$A54=0;}
+    if( !empty($_POST['66']) ){$A66 = $_POST['66'] ;}else{$A64=0;}
+
+    //ส่วนลดรวม
+    $sum_dis  =  $A16 + $A26 + $A36 + $A46 + $A56 + $A66 ;  
+
+    // ยอดรวม
+    $sum  =  $A14 + $A24 + $A34 + $A44 + $A54 + $A64 ;  
+
+    //สุธิ
+
+    $total = $sum - $sum_dis;
+
+    //vat 
     $vat = $sum * 7/107;
+    //ก่อนvat
     $price_nv = $sum * 100/107;
 
-    ($A14 >= 0 ? $A14 : '')
+
+    // เลขคำสั่งซื้อ
+    $_POST["order"];
+
+    // ชื่อ บ ผู้ขาย
+    $_POST["name1"];
+    $_POST["textarea1"];
+
+    // ชื่อ บ ผู้ซื้อ
+    $_POST["nam2"];
+    $_POST["textarea2"];
+
+    // ประเภทการจ่ายเงิน
+    $_POST["paytype1"];
+    $_POST["paytype2"];
+    $_POST["paytype3"];
+
+    // Vat หักณที่จ่าย
+    $_POST["vat"];          //check box
+    $_POST["vat2_1"];       //value
+
+    // หมายเหตุ
+    $_POST["textarea3"];
+    
     ?>
 
 <body>
@@ -301,30 +343,6 @@
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['64']) ? $_POST['64'] : ''); ?> </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['71']) ? $_POST['71'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['72']) ? $_POST['72'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['73']) ? $_POST['73'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['74']) ? $_POST['74'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['81']) ? $_POST['81'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['82']) ? $_POST['82'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['83']) ? $_POST['83'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['84']) ? $_POST['84'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['91']) ? $_POST['91'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['92']) ? $_POST['92'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['93']) ? $_POST['93'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['94']) ? $_POST['94'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['01']) ? $_POST['01'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['02']) ? $_POST['02'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['03']) ? $_POST['03'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['04']) ? $_POST['04'] : ''); ?> </td>
-        </tr>
-        <tr>
             <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
@@ -369,8 +387,11 @@
             </td>
             <td style="border-top: 1px solid #000000" align="left" valign=bottom>&#3619;&#3623;&#3617;&#3648;&#3611;&#3655;&#3609;&#3648;&#3591;&#3636;&#3609; </td>
             <td style="border-top: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> <?php echo number_format($sum,2); ?> </td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" "> <?php echo number_format($sum,2); ?> </td>
         </tr>
+        
+        <!-- ส่วนลด -->
+        <?php if( $_POST["sum_dis"] > 0) { ?>
         <tr>
             <td style="border-top: 1px solid #3b4e87; border-bottom: 1px solid #3b4e87; border-left: 1px solid #3b4e87; border-right: 1px solid #3b4e87" colspan=3 height="20" align="left" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">&#3627;&#3617;&#3634;&#3618;&#3648;&#3627;&#3605;&#3640; </font>
@@ -378,10 +399,15 @@
             <td align="left" valign=bottom>
                 <font color="#FFFFFF"><br></font>
             </td>
-            <td align="left" valign=bottom>&#3626;&#3656;&#3623;&#3609;&#3621;&#3604; (&#3606;&#3657;&#3634;&#3617;&#3637;)</td>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A" sdval="0.05" sdnum="1033;0;0%"> - </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="12.5" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> - </td>
+            <td align="left" valign=bottom>ส่วนลด (ถ้ามี)</td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A" sdval="0.05" sdnum="1033;0;0%"> - <?php echo number_format($_POST["vat2_1"],2); ?> </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="12.5" > <?php echo number_format($total,2); ?> </td>
         </tr>
+        <?php } ?>
+
+
+        <!-- vat -->
+        <?php if( !empty($_POST["vat"]) ){ ?>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>1. &#3627;&#3634;&#3585;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;&#3605;&#3657;&#3629;&#3591;&#3585;&#3634;&#3619; &#3627;&#3633;&#3585;&#3616;&#3634;&#3625;&#3637; &#3603; &#3607;&#3637;&#3656;&#3592;&#3656;&#3634;&#3618; &#3585;&#3619;&#3640;&#3603;&#3634;&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;&#3612;&#3641;&#3657;&#3586;&#3634;&#3618;&#3650;&#3604;&#3618;&#3605;&#3619;&#3591; </td>
             <td align="left" valign=bottom><br></td>
@@ -403,6 +429,7 @@
             <td align="center" valign=bottom><b><br></b></td>
             <td align="right" valign=bottom bgcolor="#D3D9EC"><b> THB <?php echo number_format($sum,2); ?></b></td>
         </tr>
+        <?php } ?>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=3 height="20" align="left" valign=top>4. &#3585;&#3635;&#3627;&#3609;&#3604;&#3618;&#3639;&#3609;&#3619;&#3634;&#3588;&#3634;&#3616;&#3634;&#3618;&#3651;&#3609; 15 &#3623;&#3633;&#3609; </td>
             <td align="left" valign=bottom><br></td>
