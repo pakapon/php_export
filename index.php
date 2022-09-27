@@ -13,8 +13,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         input {
             width: 100%;
@@ -121,8 +120,7 @@
                                 <label class="control-label" for="name">ชื่อผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ซื้อ" class="form-control"
-                                    required="">
+                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ซื้อ" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -134,8 +132,7 @@
                                 <label class="control-label" for="name">ชื่อผู้ซื้อ:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="name2" name="name2" type="text" placeholder="ชื่อผู้ขาย" class="form-control"
-                                    required="">
+                                <input id="name2" name="name2" type="text" placeholder="ชื่อผู้ขาย" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -147,8 +144,7 @@
                                 <label class="control-label" for="2">วันที่</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="d2" name="d2" type="date" placeholder="วันที่" class="form-control input-md"
-                                    required="">
+                                <input id="d2" name="d2" type="date" placeholder="วันที่" class="form-control input-md" required>
                             </div>
                         </div>
                     </div>
@@ -186,8 +182,7 @@
                                 <label class="control-label" for="2">เลขคำสั่งซื้อ</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="order" name="order" type="text" placeholder="เลขคำสั่งซื้อ" class="form-control"
-                                    required="">
+                                <input id="order" name="order" type="text" placeholder="เลขคำสั่งซื้อ" class="form-control" required="">
                             </div>
                         </div>
                     </div>
@@ -198,29 +193,31 @@
             <table class="table table-striped" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th style="width: 5%;">#</th>
-                        <th style="width: 45%;">สินค้า/บริการ</th>
+                        <th style="width: 2%;">#</th>
+                        <th style="width: 38%;">สินค้า/บริการ</th>
                         <th style="width: 10%;">จำนวน</th>
-                        <th style="width: 10%;">ราคาต่อหน่วย</th>
-                        <th style="width: 10%;">เป็นเงิน</th>
+                        <th style="width: 10%;">ราคา/หน่วย</th>
+                        <th style="width: 10%;">รวมเป็นเงิน</th>
                         <th style="width: 10%;">ส่วนลด(%)</th>
-                        <th style="width: 10%;">ส่วนลดเป็นเงิน</th>
+                        <th style="width: 10%;">ส่วนลด(฿)</th>
+                        <th style="width: 10%;">รวมทั้งหมด</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        for ($i=1; $i < 7; $i++) { 
-                            echo
-                            '<tr>
-                                <th scope="row">'.$i.'</th>
-                                <td><input class="form-control" type="text" id="11" name="11"></td>
-                                <td><input class="form-control cc" data-qty="'.$i.'" type="number" id="'.$i.'2" name="'.$i.'2"></td>
-                                <td><input class="form-control cc" data-unit="'.$i.'" type="number" id="'.$i.'3" name="'.$i.'3"></td>
-                                <td><input class="form-control cc" data-price="'.$i.'" type="number" id="'.$i.'4" name="'.$i.'4" disabled></td>
-                                <td><input class="form-control cc" data-discount="'.$i.'" type="number" id="'.$i.'5" name="'.$i.'5"></td>
-                                <td><input class="form-control cc" data-price2="'.$i.'" type="number" id="'.$i.'6" name="'.$i.'6" disabled></td>
+                    for ($i = 1; $i < 7; $i++) {
+                        echo
+                        '<tr>
+                                <th scope="row">' . $i . '</th>
+                                <td><input class="form-control" type="text" id="' . $i . '1" name="' . $i . '1"></td>
+                                <td><input class="form-control cc" data-qty="' . $i . '" type="number" id="' . $i . '2" name="' . $i . '2"></td>
+                                <td><input class="form-control cc" data-unit="' . $i . '" type="number" id="' . $i . '3" name="' . $i . '3"></td>
+                                <td><input class="form-control cc" data-price="' . $i . '" type="number" id="' . $i . '4" name="' . $i . '4" disabled></td>
+                                <td><input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5"></td>
+                                <td><input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" disabled></td>
+                                <td><input class="form-control cc" data-price3="' . $i . '" type="number" id="' . $i . '7" name="' . $i . '7" disabled></td>
                             </tr>';
-                        }
+                    }
                     ?>
                 </tbody>
             </table>
@@ -314,16 +311,14 @@
                             </label>
                         </div>
                         <div class="col-4">
-                            <input type="number" class="form-control" id="vat2_1" name="vat2_1"
-                                aria-describedby="emailHelp" placeholder="X %">
+                            <input type="number" class="form-control" id="vat2_1" name="vat2_1" aria-describedby="emailHelp" placeholder="X %">
                         </div>
                     </div>
 
 
                 </div>
                 <div class="col-4 mt-4">
-                    <button type="submit" class="btn btn-lg btn-success" style="width: 100%"
-                        value="">สร้างใบเสนอราคา</button>
+                    <button type="submit" class="btn btn-lg btn-success" style="width: 100%" value="">สร้างใบเสนอราคา</button>
                 </div>
             </div>
         </form>
@@ -332,18 +327,15 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
     <script>
-        $('body').on('keyup','.cc',function(){
+        $('body').on('keyup', '.cc', function() {
             var v = $(this).data();
             var qty = 0;
             var unit = 0;
@@ -351,47 +343,42 @@
             var discount = 0;
             var sum = 0;
 
-            if(v.qty){
+            if (v.qty) {
                 v = v.qty;
-                qty = $('.cc[data-qty="'+v+'"]').val();
-                unit =  $('.cc[data-unit="'+v+'"]').val();
+                qty = $('.cc[data-qty="' + v + '"]').val();
+                unit = $('.cc[data-unit="' + v + '"]').val();
 
                 // if(qty && unit){
                 //     sum = qty * unit;
                 //     $('.cc[data-price="'+v+'"]').val(sum);
                 // }
             }
-            if(v.unit){
+            if (v.unit) {
                 v = v.unit;
-                qty = $('.cc[data-qty="'+v+'"]').val();
-                unit =  $('.cc[data-unit="'+v+'"]').val();
-
-                // if(qty && unit){
-                //     sum = qty * unit;
-                //     $('.cc[data-price="'+v+'"]').val(sum);
-                // }
+                qty = $('.cc[data-qty="' + v + '"]').val();
+                unit = $('.cc[data-unit="' + v + '"]').val();
             }
 
-            if(v.discount){
+            if (v.discount) {
                 v = v.discount;
-                discount = $('.cc[data-discount="'+v+'"]').val();
-                price = $('.cc[data-price="'+v+'"]').val();
-
-                // if(discount && price){
-                //     sum = discount / 100 * price;
-                //     $('.cc[data-price2="'+v+'"]').val(sum);
-                // }
+                discount = $('.cc[data-discount="' + v + '"]').val();
+                price = $('.cc[data-price="' + v + '"]').val();
             }
 
-            if(qty && unit){
+            // Callcuator
+
+            if (qty && unit) {
                 sum = qty * unit;
-                $('.cc[data-price="'+v+'"]').val(sum);
+                $('.cc[data-price="' + v + '"]').val(sum);
             }
 
-            if(discount && price){
+            if (discount && price) {
                 sum = discount / 100 * price;
-                $('.cc[data-price2="'+v+'"]').val(sum);
+                sum2 = price - sum * 1;
+                $('.cc[data-price2="' + v + '"]').val(sum);
+                $('.cc[data-price3="' + v + '"]').val(sum2);
             }
+
         })
     </script>
 </body>
