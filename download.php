@@ -1,40 +1,77 @@
 <?php
+    function c_u ($data){
+        if($data == null){
+            return 0;
+        }else{
+            return $data;
+        }
+        
+    }
 
-if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
-    if( !empty($_POST['24']) ){$A24 = $_POST['24'] ;}else{$A24=0;}
-    if( !empty($_POST['34']) ){$A34 = $_POST['34'] ;}else{$A34=0;}
-    if( !empty($_POST['44']) ){$A44 = $_POST['44'] ;}else{$A44=0;}
-    if( !empty($_POST['54']) ){$A54 = $_POST['54'] ;}else{$A54=0;}
-    if( !empty($_POST['64']) ){$A64 = $_POST['64'] ;}else{$A64=0;}
-    // if( !empty($_POST['74']) ){$A74 = $_POST['74'] ;}else{$A74=0;}
-    // if( !empty($_POST['84']) ){$A84 = $_POST['84'] ;}else{$A84=0;}
-    // if( !empty($_POST['94']) ){$A94 = $_POST['94'] ;}else{$A94=0;}
-    // if( !empty($_POST['04']) ){$A04 = $_POST['04'] ;}else{$A04=0;}
+    function z_u ($data){
+        if($data == 0){
+            return " ";
+        }else{
+            return $data;
+        }
+        
+    }
+    // ชื่อบริการ
+    $row_n[1][1] = $_POST['11'] ;
+    $row_n[1][2] = $_POST['21'] ;
+    $row_n[1][3] = $_POST['31'] ;
+    $row_n[1][4] = $_POST['41'] ;
+    $row_n[1][5] = $_POST['51'] ;
+    $row_n[1][6] = $_POST['61'] ;
+    
+    // จำนวน
+    $row_n[2][1] = $_POST['12'] ;
+    $row_n[2][2] = $_POST['22'] ;
+    $row_n[2][3] = $_POST['32'] ;
+    $row_n[2][4] = $_POST['42'] ;
+    $row_n[2][5] = $_POST['52'] ;
+    $row_n[2][6] = $_POST['62'] ;
 
-    if( !empty($_POST['16']) ){$A16 = $_POST['16'] ;}else{$A14=0;}
-    if( !empty($_POST['26']) ){$A26 = $_POST['26'] ;}else{$A24=0;}
-    if( !empty($_POST['36']) ){$A36 = $_POST['36'] ;}else{$A34=0;}
-    if( !empty($_POST['46']) ){$A46 = $_POST['46'] ;}else{$A44=0;}
-    if( !empty($_POST['56']) ){$A56 = $_POST['56'] ;}else{$A54=0;}
-    if( !empty($_POST['66']) ){$A66 = $_POST['66'] ;}else{$A64=0;}
+    // ราคาต่อหน่วย
+    $row_n[3][1] = z_u(number_format(c_u($_POST['13']),2)) ;
+    $row_n[3][2] = z_u(number_format(c_u($_POST['23']),2)) ;
+    $row_n[3][3] = z_u(number_format(c_u($_POST['33']),2)) ;
+    $row_n[3][4] = z_u(number_format(c_u($_POST['43']),2)) ;
+    $row_n[3][5] = z_u(number_format(c_u($_POST['53']),2)) ;
+    $row_n[3][6] = z_u(number_format(c_u($_POST['63']),2)) ;
 
+    // เป็นเงิน
+    $row_n[4][1] = z_u(number_format(c_u($_POST['13']) * c_u($_POST['12']),2)) ;
+    $row_n[4][2] = z_u(number_format(c_u($_POST['23']) * c_u($_POST['22']),2)) ;
+    $row_n[4][3] = z_u(number_format(c_u($_POST['33']) * c_u($_POST['32']),2)) ;
+    $row_n[4][4] = z_u(number_format(c_u($_POST['43']) * c_u($_POST['42']),2)) ;
+    $row_n[4][5] = z_u(number_format(c_u($_POST['53']) * c_u($_POST['52']),2)) ;
+    $row_n[4][6] = z_u(number_format(c_u($_POST['63']) * c_u($_POST['62']),2)) ;
 
-    //ส่วนลดรวม
-    $sum_dis  =  $A16 + $A26 + $A36 + $A46 + $A56 + $A66 ;  
+    // ส่วนลด%
+    $row_n[5][1] = $_POST['15'] ;
+    $row_n[5][2] = $_POST['25'] ;
+    $row_n[5][3] = $_POST['35'] ;
+    $row_n[5][4] = $_POST['45'] ;
+    $row_n[5][5] = $_POST['55'] ;
+    $row_n[5][6] = $_POST['65'] ;
 
-    // ยอดรวม
-    $sum  =  $A14 + $A24 + $A34 + $A44 + $A54 + $A64 ;  
+    // ส่วนลดเงิน
+    $row_n[6][1] = z_u(number_format(c_u($_POST['15']) / 100 * (c_u($_POST['13']) * c_u($_POST['12'])),2)) ;
+    $row_n[6][2] = z_u(number_format(c_u($_POST['25']) / 100 * (c_u($_POST['23']) * c_u($_POST['22'])),2)) ;
+    $row_n[6][3] = z_u(number_format(c_u($_POST['35']) / 100 * (c_u($_POST['33']) * c_u($_POST['32'])),2)) ;
+    $row_n[6][4] = z_u(number_format(c_u($_POST['45']) / 100 * (c_u($_POST['43']) * c_u($_POST['42'])),2)) ;
+    $row_n[6][5] = z_u(number_format(c_u($_POST['55']) / 100 * (c_u($_POST['53']) * c_u($_POST['52'])),2)) ;
+    $row_n[6][6] = z_u(number_format(c_u($_POST['65']) / 100 * (c_u($_POST['63']) * c_u($_POST['62'])),2)) ;
 
-    //สุธิ
-    $total = $sum - $sum_dis;
-
-    //vat 
-    $vat = $sum * 7/107;
-    //ก่อนvat
-    $price_nv = $sum * 100/107;
-
-    // print_r($_POST);
-
+    // ส่วนลดเงิน
+    $row_n[7][1] = z_u(number_format(c_u($_POST['13']) * c_u($_POST['12']) - (c_u($_POST['15']) / 100 * (c_u($_POST['13']) * c_u($_POST['12']))),2)) ;
+    $row_n[7][2] = z_u(number_format(c_u($_POST['23']) * c_u($_POST['22']) - (c_u($_POST['25']) / 100 * (c_u($_POST['23']) * c_u($_POST['22']))),2)) ;
+    $row_n[7][3] = z_u(number_format(c_u($_POST['33']) * c_u($_POST['32']) - (c_u($_POST['35']) / 100 * (c_u($_POST['33']) * c_u($_POST['32']))),2)) ;
+    $row_n[7][4] = z_u(number_format(c_u($_POST['43']) * c_u($_POST['42']) - (c_u($_POST['45']) / 100 * (c_u($_POST['43']) * c_u($_POST['42']))),2)) ;
+    $row_n[7][5] = z_u(number_format(c_u($_POST['53']) * c_u($_POST['52']) - (c_u($_POST['55']) / 100 * (c_u($_POST['53']) * c_u($_POST['52']))),2)) ;
+    $row_n[7][6] = z_u(number_format(c_u($_POST['63']) * c_u($_POST['62']) - (c_u($_POST['65']) / 100 * (c_u($_POST['63']) * c_u($_POST['62']))),2)) ;
+    
     // เลขคำสั่งซื้อ
     $order = $_POST["order"];
 
@@ -51,18 +88,53 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
     //วันที่
     $dates = $_POST['d2'];
 
+    // Vat หักณที่จ่าย
+    $_POST["vat"];          //check box
+    $_POST["vat2_1"];       //value
+
+    //ยืนราคา
+    if( !empty($_POST["st_day"]) ){
+        $day_st = "กำหนดยืนราคา ".$_POST["st_day"]." วัน *";
+    }else{
+        $day_st = "";
+    }
+
     // ประเภทการจ่ายเงิน
     $_POST["paytype1"];
     $_POST["paytype2"];
     $_POST["paytype3"];
 
-    // Vat หักณที่จ่าย
-    $_POST["vat"];          //check box
-    $_POST["vat2_1"];       //value
-
     // หมายเหตุ
     $comment = nl2br($_POST["textarea3"]);
 
+    // รวมเงิน
+    $sum    =  z_u(number_format(array_sum($row_n[4]),2));  
+    // ส่วนลด
+    $dis    = z_u(number_format(array_sum($row_n[6]),2));  
+    // ยอดเงินหลังหักส่วนลด
+    $suba_dis = z_u(number_format(array_sum($row_n[7]),2)); 
+
+    // ภาษีมูลค่าเพิ่ม 7% :: sum x 7/100  
+    if( $_POST["vat"] == 1){
+        $vat = z_u(number_format($sum * 7/100,2)); 
+        $vat_cal = z_u(number_format($sum * 7/100,2)); 
+    }else{
+        $vat = " - ";
+    }
+    //รวมเงินทั้งสิ้น
+    $all_sum = z_u(number_format($sum- $dis + $vat_cal,2)) ;
+    
+    //หักภาษี ณ ที่จ่าย 3% 5% :: sum x 3/(100-3)
+    if( !empty($_POST["vat2_1"]) ){
+        $cut_sub = z_u(number_format($sum * $_POST["vat2_1"]/(100-3),2)) ; 
+        $cut_sub_cal = z_u(number_format($sum * $_POST["vat2_1"]/(100-3),2)) ; 
+    }else{
+        $cut_sub = " - ";
+    }
+
+    //ยอดชำระ
+    $final = z_u(number_format($all_sum - $cut_sub_cal,2)) ;
+    
 ?>
 
 <html>
@@ -311,7 +383,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td style="width:30px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">จำนวน</font>
                 </b></td>
-            <td style="min-width:50px;  border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="min-width:90px;  border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">ราคาต่อหน่วย</font>
                 </b></td>
             <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
@@ -323,28 +395,25 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td style="max-width: 20px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">ส่วนลด(บาท)</font>
                 </b></td>
-            <td style="min-width:20px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="min-width:70px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">รวมเงิน</font>
                 </b></td>
         </tr>
-        <?PHP for($x = 1; $x <= 5; $x++){?>
+        <?PHP for($x = 1; $x <= 11; $x++){ 
+                if( ( $x % 2 === 0 ) ){ 
+                        $bg ='bgcolor="#F2F2F2"'; 
+                    }else{
+                        $bg =''; 
+                    }
+        ?>
         <tr>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="19" align="left" valign=bottom>รับแปลฉลากสินค้า รับแปลวิธีใช้งาน แบบย่อ 2000 บาท / 1000 คำ</td>
-            <td style="border-right: 1px solid #000000;" align="center" valign=bottom> 1 </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > 2,000.00 </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > 2,000.00 </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > - </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > - </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > 2,000.00 </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2">รับแปลฉลากสินค้า รับแปลวิธีใช้งาน แบบย่อ 2000 บาท / 1000 คำ</td>
-            <td style="border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F2F2F2"> 1 </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> 2,000.00 </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> 2,000.00 </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> - </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> - </td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> 2,000.00 </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="19" align="left" valign=bottom <?=$bg?> ><?=$row_n[1][$x]?></td>
+            <td style="border-right: 1px solid #000000;" align="center" valign=bottom <?=$bg?> > <?=$row_n[2][$x]?> </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom <?=$bg?> > <?=$row_n[3][$x]?> </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom <?=$bg?> > <?=$row_n[4][$x]?> </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom <?=$bg?> > <?=$row_n[5][$x]?> </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom <?=$bg?> > <?=$row_n[6][$x]?> </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom <?=$bg?> > <?=$row_n[7][$x]?> </td>
         </tr>
         <?PHP } ?>
 
@@ -357,7 +426,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
             <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
             <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>รวมเงิน</td>
-            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="right" valign=bottom "> 2,000.00 </td>
+            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="right" valign=bottom "><?=$sum?>  บาท</td>
         </tr>
         
         <!-- ส่วนลด -->
@@ -366,64 +435,61 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ส่วนลด</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> - </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$dis?>  บาท</td>
         </tr>
 
+        <!-- เงื่อนไขการชําระเงิน -->
         <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top>- ชำระเงินงวดแรกเต็มจำนวน 100%</td>
+            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080;border-bottom: 1px solid #000000;" colspan=5 rowspan="8" height="20" align="left" valign=top>
+                <?=$buy_d?><br>
+            </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ยอดเงินหลังหักส่วนลด</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> - </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$suba_dis?>  บาท</td>
         </tr>
+
         <!-- vat -->
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
+        <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ภาษีมูลค่าเพิ่ม 7%</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> 140.00  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$vat?>  บาท</td>
         </tr>
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
+        <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td> 
             <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom><b>รวมเงินทั้งสิ้น</b></td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b> 2,140.00  บาท</b></td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b><?=$all_sum?>  บาท</b></td>
         </tr>
         
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
+        <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>หักภาษี ณ ที่จ่าย 3%</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> 64.20  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$cut_sub?>  บาท</td>
         </tr>
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
+        <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom><b>ยอดชำระ</b></td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b> 2,075.80  บาท</b></td>
+            <td style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b><?=$final?>  บาท</b></td>
         </tr>
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20"  align="left" valign=bottom><br></td>
+        <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20"  align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
         </tr>
-        <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080; border-bottom: 1px solid #808080" colspan=5 height="20"  align="left" valign=bottom><br></td>
+        <tr> 
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+        </tr>
+        <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -443,23 +509,6 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
         </tr>
         
-        <!-- กำหนดยืนราคา -->
-        <!-- <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF"></font><b></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-        </tr> 
-        <tr>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-        </tr>-->
         <!-- หมายเหตุ -->
         <tr>
             <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">หมายเหตุ</font><b></td>
@@ -470,17 +519,8 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080; border-bottom: 1px solid #808080" colspan=5 rowspan="6" height="20"  align="left"  valign=top><br><?=$comment?></td>
+            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080; border-bottom: 1px solid #808080" colspan=5 rowspan="6" height="20"  align="left"  valign=top><?=$comment?></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-        </tr>
-        <tr>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -492,14 +532,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-        </tr>
-        <tr>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
@@ -507,17 +540,33 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-        <td align="left" colspan=4 valign=bottom><b>กำหนดยืนราคา  30  วัน *</b></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+        </tr>
+        <tr>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+        </tr>
+        <tr>
+        <td align="left" colspan=4 valign=bottom><br><b><?=$day_st?></b></td>
             <td align="center" colspan=4 valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>

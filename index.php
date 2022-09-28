@@ -188,6 +188,32 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="row" style="padding: 10px">
+                            <div class="col-sm-12">
+                                <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ซื้อ:</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ซื้อ" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="row" style="padding: 10px">
+                            <div class="col-sm-12">
+                                <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ขาย:</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input id="tex2" name="tex2" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             </fieldset>
             <table class="table table-striped" style="width: 100%;">
@@ -295,17 +321,35 @@
                 </div>
             </div>
 
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row" style="padding: 10px">
+                            <div class="col-sm-12">
+                                <label class="control-label" for="textarea">กำหนดยืนราคา(วัน)</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="number" class="form-control" id="vat2_1" name="vat2_1" placeholder="กำหนดยืนราคา">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-8">
-                    <div class="row">
+                    <div class="row"> 
                         <div class="col-12">
-                            <label class="container1">คำนวนราคาก่อน Vat 7%
-                                <input type="checkbox" checked="checked" name="vat">
-                                <span class="checkmark"></span>
+                            <label class="container1">
+                                <input type="radio" id="vat" name="vat" value="" ><label for="vat">ไม่คำนวนราคาก่อน Vat 7%</label>
+                                <input type="radio" id="vat" name="vat" value="1" checked><label for="vat">คำนวนราคาก่อน Vat 7%</label>
                             </label>
                         </div>
                         <div class="col-3">
-                            <label class="container1">หัก ณ ที่จ่าย
+                            <label class="container1">
+                                <input type="radio" id="vat2" name="vat2" value="" checked><label for="vat">ไม่หัก ณ ที่จ่าย</label>
+                                <input type="radio" id="vat2" name="vat2" value="1" checked><label for="vat">หัก ณ ที่จ่าย</label>
                                 <input type="checkbox" name="vat2">
                                 <span class="checkmark"></span>
                             </label>
@@ -314,13 +358,11 @@
                             <input type="number" class="form-control" id="vat2_1" name="vat2_1" aria-describedby="emailHelp" placeholder="X %">
                         </div>
                     </div>
-
-
-                </div>
-                <div class="col-4 mt-4">
-                    <button type="submit" class="btn btn-lg btn-success" style="width: 100%" value="">สร้างใบเสนอราคา</button>
+ 
                 </div>
             </div>
+            
+            <div class="col-4 mt-4"> <button type="submit" class="btn btn-lg btn-success" style="width: 100%" value="">สร้างใบเสนอราคา</button> </div>
         </form>
     </div>
 
