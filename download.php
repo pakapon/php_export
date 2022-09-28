@@ -36,15 +36,20 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
     // print_r($_POST);
 
     // เลขคำสั่งซื้อ
-    $_POST["order"];
+    $order = $_POST["order"];
 
     // ชื่อ บ ผู้ขาย
-    $_POST["name1"];
-    $_POST["textarea1"];
+    $sale_n = $_POST["name1"];
+    $sale_d = nl2br($_POST["textarea1"]) ;
+    $sale_t = $_POST["tex1"];
 
     // ชื่อ บ ผู้ซื้อ
-    $_POST["name2"];
-    $_POST["textarea2"];
+    $buy_n = $_POST["name2"];
+    $buy_d = nl2br($_POST["textarea2"]) ; 
+    $buy_t = $_POST["tex2"];
+
+    //วันที่
+    $dates = $_POST['d2'];
 
     // ประเภทการจ่ายเงิน
     $_POST["paytype1"];
@@ -56,7 +61,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
     $_POST["vat2_1"];       //value
 
     // หมายเหตุ
-    $_POST["textarea3"];
+    $comment = nl2br($_POST["textarea3"]);
 
 ?>
 
@@ -167,7 +172,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
                 </b></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom bgcolor="#F0B57A"><b>
+            <td align="left" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">รายละเอียดผู้ขาย</font>
                 </b></td>
             <td align="left" valign=bottom><br></td>
@@ -176,16 +181,14 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="right" colspan="2"  valign=bottom>เลขคำสั่งซื้อ</td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000"  align="center" align="center" >RQTXXXXXXXXX</td>
+            <td align="right" colspan="2" valign=bottom>เลขคำสั่งซื้อ</td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$order?></td>
         </tr>
         <tr>
-            <td height="19" align="left" rowspan="6" valign=TOP>
-                    บริษัท โลคัลไลท์ จำกัด </br>
-                    2/8 สุขุมวิท41 แขวงคลองตันเหนือ </br>
-                    เขตวัฒนา จังหวัดกรุงเทพมหานคร 10110</br>
-                    โทร : xxxxxxxxxx </br>
-                    เลขประจำตัวผู้เสียภาษี : xxxxxxxxxxxxx </br>
+            <td align="left" rowspan="6" valign=TOP>
+                <?=$sale_n?><br>
+                <?=$sale_d?><br>
+                เลขประจำตัวผู้เสียภาษี : <?=$sale_t?>
             </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -193,8 +196,8 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="right" colspan="2"  valign=bottom>&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;</td>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" align="center">2022-09-09</td>
+            <td align="right" colspan="2" valign=bottom>&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;</td> 
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" align="center"><?=$dates?></td>
         </tr>
         <tr>
             <td align="left" valign=bottom><br></td>
@@ -237,7 +240,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" valign=bottom bgcolor="#F0B57A"><b>
+            <td align="left" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">รายละเอียดผู้ซื้อ</font>
                 </b></td>
             <td align="left" valign=bottom><br></td>
@@ -248,13 +251,10 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td height="19" align="left" rowspan="6" valign=TOP>
-                    อิ๊กดราซิล กรุ๊ป จำกัด (มหาชน) </br>
-                    348 ซอยลาดพร้าว 94 (ปัญจมิตร) </br> 
-                    แขวงพลับพลา เขตวังทองหลาง </br> 
-                    จังหวัดกรุงเทพมหานคร 10310</br>
-                    โทร : xxxxxxxxxx </br>
-                    เลขประจำตัวผู้เสียภาษี : xxxxxxxxxxxxx </br>
+            <td align="left" rowspan="6" valign=TOP>
+                <?=$buy_n?><br>
+                <?=$buy_d?><br>
+                เลขประจำตัวผู้เสียภาษี : <?=$buy_t?>
             </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -300,197 +300,111 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan=4 height="20" align="left" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">&#3619;&#3634;&#3618;&#3621;&#3632;&#3648;&#3629;&#3637;&#3618;&#3604;&#3610;&#3619;&#3636;&#3585;&#3634;&#3619; </font>
+            <td style="min-width:250px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="20" align="left" valign=bottom bgcolor="#F0B57A"><b>
+                    <font face="Arial" color="#FFFFFF">รายละเอียดบริการ</font>
                 </b></td>
-            <td while="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="width:30px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">จำนวน</font>
                 </b></td>
-            <td while="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="min-width:50px;  border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">ราคาต่อหน่วย</font>
                 </b></td>
-            <td while="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">เป็นเงิน</font>
                 </b></td>
-            <td while="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="max-width: 20px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">ส่วนลด(%)</font>
                 </b></td>
-            <td while="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="max-width: 20px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">ส่วนลด(บาท)</font>
                 </b></td>
-            <td while="10%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F0B57A"><b>
+            <td style="min-width:20px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
                     <font face="Arial" color="#FFFFFF">รวมเงิน</font>
                 </b></td>
         </tr>
+        <?PHP for($x = 1; $x <= 5; $x++){?>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom>รับแปลฉลากสินค้า รับแปลวิธีใช้งาน แบบย่อ 2000 บาท / 1000 คำ</td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" > 1 </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > 2,000.00 </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > 2,000.00 </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > - </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > - </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > 2,000.00 </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="19" align="left" valign=bottom>รับแปลฉลากสินค้า รับแปลวิธีใช้งาน แบบย่อ 2000 บาท / 1000 คำ</td>
+            <td style="border-right: 1px solid #000000;" align="center" valign=bottom> 1 </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > 2,000.00 </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > 2,000.00 </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > - </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > - </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom > 2,000.00 </td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['21']) ? $_POST['21'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['22']) ? $_POST['22'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['23']) ? $_POST['23'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['24']) ? $_POST['24'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['24']) ? $_POST['24'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['24']) ? $_POST['24'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['24']) ? $_POST['24'] : ''); ?> </td>
+            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2">รับแปลฉลากสินค้า รับแปลวิธีใช้งาน แบบย่อ 2000 บาท / 1000 คำ</td>
+            <td style="border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F2F2F2"> 1 </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> 2,000.00 </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> 2,000.00 </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> - </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> - </td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#F2F2F2"> 2,000.00 </td>
         </tr>
+        <?PHP } ?>
+
         <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['31']) ? $_POST['31'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['32']) ? $_POST['32'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['33']) ? $_POST['33'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['34']) ? $_POST['34'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['34']) ? $_POST['34'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['34']) ? $_POST['34'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['34']) ? $_POST['34'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['41']) ? $_POST['41'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['42']) ? $_POST['42'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['43']) ? $_POST['43'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['44']) ? $_POST['44'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['44']) ? $_POST['44'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['44']) ? $_POST['44'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['44']) ? $_POST['44'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><?php echo  (!empty($_POST['51']) ? $_POST['51'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" ><?php echo  (!empty($_POST['52']) ? $_POST['52'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" ><?php echo  (!empty($_POST['53']) ? $_POST['53'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['54']) ? $_POST['54'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['54']) ? $_POST['54'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['54']) ? $_POST['54'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" > <?php echo  (!empty($_POST['54']) ? $_POST['54'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><?php echo  (!empty($_POST['61']) ? $_POST['61'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="1" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['62']) ? $_POST['62'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom sdval="250" bgcolor="#F2F2F2"><?php echo  (!empty($_POST['63']) ? $_POST['63'] : ''); ?></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['64']) ? $_POST['64'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['64']) ? $_POST['64'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['64']) ? $_POST['64'] : ''); ?> </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" bgcolor="#F2F2F2"> <?php echo  (!empty($_POST['64']) ? $_POST['64'] : ''); ?> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)">  </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)"> </td>
-        </tr>
-        <tr>
-            <td style="border-left: 1px solid #000000" colspan=4 height="19" align="left" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=bottom bgcolor="#F2F2F2"><br></td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom bgcolor="#F2F2F2" sdval="0" sdnum="1033;0;_(* #,##0.00_);_(* \(#,##0.00\);_(* -??_);_(@_)">  </td>
-        </tr>
-        <tr>
-            <td style="border-top: 1px solid #000000" height="20" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000" align="left" colspan="2" valign=bottom>รวมเงิน</td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom sdval="250" "> 2,000.00 </td>
+            <td style="border-top: 1px solid #000000;" height="20" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
+            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>รวมเงิน</td>
+            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="right" valign=bottom "> 2,000.00 </td>
         </tr>
         
         <!-- ส่วนลด -->
         <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">เงื่อนไขการชําระเงิน</font><b></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">เงื่อนไขการชําระเงิน</font><b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom colspan="2">ส่วนลด</td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" > - </td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ส่วนลด</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> - </td>
         </tr>
 
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top>- ชำระเงินงวดแรกเต็มจำนวน 100%</td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom colspan="2"> ยอดเงินหลังหักส่วนลด </td>
-            <td style="border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom> - </td> 
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ยอดเงินหลังหักส่วนลด</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> - </td>
         </tr>
         <!-- vat -->
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom colspan="2">ภาษีมูลค่าเพิ่ม 7%</td>
-            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom > 140.00  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ภาษีมูลค่าเพิ่ม 7%</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> 140.00  บาท</td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom colspan="2"><b>&#3619;&#3623;&#3617;&#3648;&#3591;&#3636;&#3609;&#3607;&#3633;&#3657;&#3591;&#3626;&#3636;&#3657;&#3609; </b></td>
-            <td align="right" valign=bottom bgcolor="#D3D9EC"><b> 2,140.00  บาท</b></td>
+            <td align="left" valign=bottom><br></td> 
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom><b>รวมเงินทั้งสิ้น</b></td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b> 2,140.00  บาท</b></td>
         </tr>
         
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom colspan="2">หักภาษี ณ ที่จ่าย 3%</td>
-            <td style="border-top: 1px solid #808080; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=bottom > 64.20  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>หักภาษี ณ ที่จ่าย 3%</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "> 64.20  บาท</td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20" align="left" valign=top></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom colspan="2"><b>ยอดชำระ</b></td>
-            <td align="right" valign=bottom bgcolor="#D3D9EC"><b> 2,075.80  บาท</b></td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom><b>ยอดชำระ</b></td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b> 2,075.80  บาท</b></td>
         </tr>
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080" colspan=5 height="20"  align="left" valign=bottom><br></td>
@@ -522,11 +436,16 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
         </tr>
         
         <!-- กำหนดยืนราคา -->
         <!-- <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF"></font><b></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF"></font><b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -543,7 +462,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
         </tr>-->
         <!-- หมายเหตุ -->
         <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">หมายเหตุ</font><b></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">หมายเหตุ</font><b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -551,7 +470,7 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
-            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080; border-bottom: 1px solid #808080" colspan=5 rowspan="6" height="20"  align="left"  valign=top><br><?php echo nl2br($_POST['textarea3']); ?></td>
+            <td style="border-left: 1px solid #808080; border-right: 1px solid #808080; border-bottom: 1px solid #808080" colspan=5 rowspan="6" height="20"  align="left"  valign=top><br><?=$comment?></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -599,9 +518,9 @@ if( !empty($_POST['14']) ){$A14 = $_POST['14'] ;}else{$A14=0;}
         </tr>
         <tr>
         <td align="left" colspan=4 valign=bottom><b>กำหนดยืนราคา  30  วัน *</b></td>
+            <td align="center" colspan=4 valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" colspan=2 valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
         </tr>
         <tr>
