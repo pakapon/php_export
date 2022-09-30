@@ -100,9 +100,27 @@
     }
 
     // ประเภทการจ่ายเงิน
-    $_POST["paytype1"];
-    $_POST["paytype2"];
-    $_POST["paytype3"];
+    $pt[1][1] = $_POST["paytype11"] ;
+    $pt[1][3] = $_POST["paytype13"] ;
+    $pt[1][2] = $_POST["paytype12"] ;
+    $pt[1][4] = $_POST["paytype14"] ;
+    $pt[1][5] = $_POST["paytype15"] ;
+    $pt[1][6] = $_POST["paytype16"] ;
+    $pt[1][7] = $_POST["paytype17"] ;
+    $pt[1][8] = $_POST["paytype18"] ;
+    $pt[1][9] = $_POST["paytype19"] ;
+    $pt[1][10] = $_POST["paytype110"] ;
+
+    $pt[2][1] = $_POST["paytype21"] ;
+    $pt[2][2] = $_POST["paytype22"] ;
+    $pt[2][3] = $_POST["paytype23"] ;
+    $pt[2][4] = $_POST["paytype24"] ;
+    $pt[2][5] = $_POST["paytype25"] ;
+    $pt[2][6] = $_POST["paytype26"] ;
+    $pt[2][7] = $_POST["paytype27"] ;
+    $pt[2][8] = $_POST["paytype28"] ;
+    $pt[2][9] = $_POST["paytype29"] ;
+    $pt[2][10] = $_POST["paytype210"] ;
 
     // หมายเหตุ
     $comment = nl2br($_POST["textarea3"]);
@@ -134,6 +152,7 @@
 
     //ยอดชำระ
     $final = z_u(number_format($all_sum - $cut_sub_cal,2)) ;
+
     
 ?>
 
@@ -216,7 +235,7 @@
         <colgroup width="126"></colgroup>
         <tr>
             <td align="left" ><image height="150 px" src="https://vezstorage.blob.core.windows.net/vpartner/media/images/documents/1f88cee0-cdfc-4bb6-8f6b-7eb7ee513dae"></image></image></td>
-            <td colspan=9 height="47" style="position: relative;left:100px;" ><b>
+            <td colspan=9 height="47" style="position: relative;left:150px;" ><b>
                     <font face="Arial" size=6 color="#7B8EC5">&#3651;&#3610;&#3648;&#3626;&#3609;&#3629;&#3619;&#3634;&#3588;&#3634;</font>
                 </b></td>
         </tr>
@@ -400,11 +419,11 @@
                 </b></td>
         </tr>
         <?PHP for($x = 1; $x <= 11; $x++){ 
-                if( ( $x % 2 === 0 ) ){ 
-                        $bg ='bgcolor="#F2F2F2"'; 
-                    }else{
-                        $bg =''; 
-                    }
+                // if( ( $x % 2 === 0 ) ){ 
+                //         $bg ='bgcolor="#F2F2F2"'; 
+                //     }else{
+                //         $bg =''; 
+                //     }
         ?>
         <tr>
             <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="19" align="left" valign=bottom <?=$bg?> ><?=$row_n[1][$x]?></td>
@@ -441,7 +460,15 @@
         <!-- เงื่อนไขการชําระเงิน -->
         <tr>
             <td style="border-left: 1px solid #808080; border-right: 1px solid #808080;border-bottom: 1px solid #000000;" colspan=5 rowspan="8" height="20" align="left" valign=top>
-                <?=$buy_d?><br>
+                <?PHP
+                    $ie = 1;
+                    foreach($pt[1] AS $rowa){
+                        if($pt[1][$ie] != null){
+                            echo " - ".$pt[1][$ie]." ".$pt[2][$ie]." % <br>";
+                        }
+                        $ie++;
+                    }
+                ?>
             </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
