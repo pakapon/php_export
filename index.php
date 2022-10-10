@@ -112,6 +112,19 @@
             padding-left: 7px;
             padding-bottom: 2px;
         }
+
+        .delete-item {
+            border: 1px solid #ccc !important;
+            border-radius: 16px;
+            width: 30px;
+            color: #fff;
+            background-color: #C8161D;
+        }
+        .delete-item-minus {
+            padding-left: 7px;
+            padding-bottom: 2px;
+        }
+
     </style>
 </head>
 
@@ -124,7 +137,7 @@
                     <h3>ใบเสนอราคา</h3>
                 </legend>
             </div>
-
+            <hr style="border-color: #F57F20;">
             <div class="row">
 
                 <div class="col-sm-4">
@@ -172,7 +185,7 @@
                     <div class="form-group">
                         <div class="row" style="padding: 10px">
                             <div class="col-sm-12">
-                                <label class="control-label" for="textarea">รายละเอียด บริษัทผู้ขาย:</label>
+                                <label class="control-label" for="textarea">รายละเอียดบริษัทผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
                                 <textarea class="form-control" id="textarea1" name="textarea1" required></textarea>
@@ -184,7 +197,7 @@
                     <div class="form-group">
                         <div class="row" style="padding: 10px">
                             <div class="col-sm-12">
-                                <label class="control-label" for="textarea">รายละเอียด บริษัทผู้ซื่อ:</label>
+                                <label class="control-label" for="textarea">รายละเอียดบริษัทผู้ซื้อ:</label>
                             </div>
                             <div class="col-sm-12">
                                 <textarea class="form-control" id="textarea2" name="textarea2" required></textarea>
@@ -224,7 +237,7 @@
                     <div class="form-group">
                         <div class="row" style="padding: 10px">
                             <div class="col-sm-12">
-                                <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ซื่อ:</label>
+                                <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ซื้อ:</label>
                             </div>
                             <div class="col-sm-12">
                                 <input id="tex2" name="tex2" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ซื่อ"
@@ -260,7 +273,7 @@
                                 <td><input class="form-control cc" data-unit="' . $i . '" type="number" id="' . $i . '3" name="' . $i . '3"></td>
                                 <td><input class="form-control cc" data-price="' . $i . '" type="number" id="' . $i . '4" name="' . $i . '4" disabled></td>
                                 <td><input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5"></td>
-                                <td><input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" disabled></td>
+                                <td><input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" ></td>
                                 <td><input class="form-control cc sum" data-price3="' . $i . '" type="number" id="' . $i . '7" name="' . $i . '7" disabled></td>
                             </tr>';
                     }
@@ -420,6 +433,7 @@
             var unit = 0;
             var price = 0;
             var discount = 0;
+            var discount2 = 0;
             var sum = 0;
 
             if (v.qty) {
@@ -427,10 +441,6 @@
                 qty = $('.cc[data-qty="' + v + '"]').val();
                 unit = $('.cc[data-unit="' + v + '"]').val();
 
-                // if(qty && unit){
-                //     sum = qty * unit;
-                //     $('.cc[data-price="'+v+'"]').val(sum);
-                // }
             }
             if (v.unit) {
                 v = v.unit;
@@ -444,6 +454,12 @@
                 price = $('.cc[data-price="' + v + '"]').val();
             }
 
+            if (v.price2) {
+                v = v.price2;
+                price = $('.cc[data-price="' + v + '"]').val();
+                price2 = $('.cc[data-price2="' + v + '"]').val();
+            }
+
             // Callcuator
 
             if (qty && unit) {
@@ -452,13 +468,23 @@
             }
 
             if (discount && price) {
+                $('.cc[data-price2="' + v + '"]').val(0);
                 sum = discount / 100 * price;
                 sum2 = price - sum * 1;
                 $('.cc[data-price2="' + v + '"]').val(sum);
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
 
-            sumPrice()
+            if (price2 && price) {
+                $('.cc[data-discount="' + v + '"]').val(0);
+                dis1 = price2 / price * 100;
+                sum2 = price - price2 * 1;
+                $('.cc[data-discount="' + v + '"]').val(dis1);
+                $('.cc[data-price3="' + v + '"]').val(sum2);
+            }
+            
+            sumPrice();
+
         })
 
         function sumPrice(){
@@ -496,6 +522,7 @@
                         </select>
                     </td>
                     <th scope="row"><input class="form-control" type="number" id="paytype2`+count+`" name="paytype2`+count+`"></th>
+                    <th class="m-0 delete-item-minus" scope="row">-</th>
                 </tr>`;
 
             $('.bodyTyp').append(html)
