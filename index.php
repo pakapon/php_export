@@ -13,8 +13,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         input {
             width: 100%;
@@ -120,11 +119,11 @@
             color: #fff;
             background-color: #C8161D;
         }
+
         .delete-item-minus {
             padding-left: 7px;
             padding-bottom: 2px;
         }
-
     </style>
 </head>
 
@@ -147,8 +146,7 @@
                                 <label class="control-label" for="name">ชื่อผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย"
-                                    class="form-control" required>
+                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -160,8 +158,7 @@
                                 <label class="control-label" for="name">ชื่อผู้ซื้อ:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="name2" name="name2" type="text" placeholder="ชื่อผู้ซื้อ" class="form-control"
-                                    required>
+                                <input id="name2" name="name2" type="text" placeholder="ชื่อผู้ซื้อ" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -173,8 +170,7 @@
                                 <label class="control-label" for="2">วันที่</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="d2" name="d2" type="date" placeholder="วันที่" class="form-control input-md"
-                                    required>
+                                <input id="d2" name="d2" type="date" placeholder="วันที่" class="form-control input-md" required>
                             </div>
                         </div>
                     </div>
@@ -212,8 +208,7 @@
                                 <label class="control-label" for="2">เลขที่ใบเสนอราคา</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="order" name="order" type="text" placeholder="เลขที่ใบเสนอราคา"
-                                    class="form-control" required="">
+                                <input id="order" name="order" type="text" placeholder="เลขที่ใบเสนอราคา" class="form-control" required="">
                             </div>
                         </div>
                     </div>
@@ -227,8 +222,7 @@
                                 <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย"
-                                    class="form-control" required>
+                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -240,8 +234,7 @@
                                 <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ซื้อ:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="tex2" name="tex2" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ซื่อ"
-                                    class="form-control" required>
+                                <input id="tex2" name="tex2" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ซื่อ" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -272,8 +265,12 @@
                                 <td><input class="form-control cc" data-qty="' . $i . '" type="number" id="' . $i . '2" name="' . $i . '2"></td>
                                 <td><input class="form-control cc" data-unit="' . $i . '" type="number" id="' . $i . '3" name="' . $i . '3"></td>
                                 <td><input class="form-control cc" data-price="' . $i . '" type="number" id="' . $i . '4" name="' . $i . '4" disabled></td>
-                                <td><input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5"></td>
-                                <td><input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" ></td>
+                                <td class="discount" data-id="' . $i . '">
+                                    <input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5">
+                                </td>
+                                <td class="price2" data-id="' . $i . '">
+                                    <input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" disabled>
+                                </td>
                                 <td><input class="form-control cc sum" data-price3="' . $i . '" type="number" id="' . $i . '7" name="' . $i . '7" disabled></td>
                             </tr>';
                     }
@@ -285,7 +282,9 @@
                         <td></td>
                         <td></td>
                         <td colspan="2">ยอดรวมทั้งหมด</td>
-                        <td class="text-center"><font class="sumP"></font></td>
+                        <td class="text-center">
+                            <font class="sumP"></font>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -319,7 +318,7 @@
                                 <label class="control-label" for="textarea">หมายเหตุ:</label>
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="form-control" id="textarea3" name="textarea3" ></textarea>
+                                <textarea class="form-control" id="textarea3" name="textarea3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -349,7 +348,7 @@
                             <div class="p-2">
                                 <label class="container1">
                                     <label for="vat">ไม่มี Vat 7%</label>
-                                    <input type="radio" id="vat" name="vat" value=""checked>
+                                    <input type="radio" id="vat" name="vat" value="" checked>
                                     <input type="checkbox" name="vat">
                                     <span class="checkmark"></span>
                                 </label>
@@ -357,7 +356,7 @@
                             <div class="p-2">
                                 <label class="container1">
                                     <label for="vat11">มี Vat 7%</label>
-                                    <input type="radio" id="vat11" name="vat" value="1" >
+                                    <input type="radio" id="vat11" name="vat" value="1">
                                     <input type="checkbox" name="vat11">
                                     <span class="checkmark"></span>
                                 </label>
@@ -399,26 +398,38 @@
                 </div>
             </div>
 
-            <div class="col-4 mt-4"> <button type="submit" class="btn btn-lg btn-success" style="width: 100%"
-                    value="">สร้างใบเสนอราคา</button> </div>
+            <div class="col-4 mt-4"> <button type="submit" class="btn btn-lg btn-success" style="width: 100%" value="">สร้างใบเสนอราคา</button> </div>
         </form>
     </div>
 
 
 
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
     <script>
-        $('body').on('change', '.checkRadio', function () {
+        var sum = 0;
+        $('body').on('click', '.discount', function() {
+            var id = $(this).data('id')
+
+            $('.cc[data-discount="' + id + '"]').prop('disabled', false);
+            $('.cc[data-price2="' + id + '"]').prop('disabled', true).val(null);
+        })
+
+        $('body').on('click', '.price2', function() {
+            var id = $(this).data('id')
+
+            $('.cc[data-discount="' + id + '"]').prop('disabled', true).val(null);
+            $('.cc[data-price2="' + id + '"]').prop('disabled', false);
+        })
+
+
+        $('body').on('change', '.checkRadio', function() {
             var v = $(this).val()
             if (v) {
                 $('.RaSelectOP').prop('disabled', false);
@@ -427,14 +438,16 @@
             }
         })
 
-        $('body').on('keyup', '.cc', function () {
+
+        $('body').on('keyup', '.cc', function() {
             var v = $(this).data();
             var qty = 0;
             var unit = 0;
             var price = 0;
             var discount = 0;
             var discount2 = 0;
-            var sum = 0;
+            var sum_= 0;
+            var price2 = 0;
 
             if (v.qty) {
                 v = v.qty;
@@ -463,52 +476,62 @@
             // Callcuator
 
             if (qty && unit) {
-                sum = qty * unit;
-                $('.cc[data-price="' + v + '"]').val(sum);
+                sum_ = qty * unit;
+                $('.cc[data-price="' + v + '"]').val(sum_);
             }
 
+            console.log('xxx',discount,price);
             if (discount && price) {
-                $('.cc[data-price2="' + v + '"]').val(0);
-                sum = discount / 100 * price;
-                sum2 = price - sum * 1;
-                $('.cc[data-price2="' + v + '"]').val(sum);
+                $('.cc[data-price3="' + v + '"]').val('');
+                sum_ = discount / 100 * price;
+                sum2 = price - sum_ * 1;
+                $('.cc[data-price2="' + v + '"]').val(sum_);
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
 
             if (price2 && price) {
-                $('.cc[data-discount="' + v + '"]').val(0);
+                $('.cc[data-discount="' + v + '"]').val('');
                 dis1 = price2 / price * 100;
                 sum2 = price - price2 * 1;
                 $('.cc[data-discount="' + v + '"]').val(dis1);
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
-            
+
             sumPrice();
 
         })
 
-        function sumPrice(){
-            var price1 = $('.cc[data-price3="1"]').val() ? $('.cc[data-price3="1"]').val() : 0 ;
-            var price2 = $('.cc[data-price3="2"]').val() ? $('.cc[data-price3="2"]').val() : 0 ;
-            var price3 = $('.cc[data-price3="3"]').val() ? $('.cc[data-price3="3"]').val() : 0 ;
-            var price4 = $('.cc[data-price3="4"]').val() ? $('.cc[data-price3="4"]').val() : 0 ;
-            var price5 = $('.cc[data-price3="5"]').val() ? $('.cc[data-price3="5"]').val() : 0 ;
-            var price6 = $('.cc[data-price3="6"]').val() ? $('.cc[data-price3="6"]').val() : 0 ;
+        function sumPrice() {
+            var price1 = $('.cc[data-price3="1"]').val() ? $('.cc[data-price3="1"]').val() : 0;
+            var price2 = $('.cc[data-price3="2"]').val() ? $('.cc[data-price3="2"]').val() : 0;
+            var price3 = $('.cc[data-price3="3"]').val() ? $('.cc[data-price3="3"]').val() : 0;
+            var price4 = $('.cc[data-price3="4"]').val() ? $('.cc[data-price3="4"]').val() : 0;
+            var price5 = $('.cc[data-price3="5"]').val() ? $('.cc[data-price3="5"]').val() : 0;
+            var price6 = $('.cc[data-price3="6"]').val() ? $('.cc[data-price3="6"]').val() : 0;
 
-            var sum = parseInt(price1) + parseInt(price2) + parseInt(price3) + parseInt(price4) + parseInt(price5) + parseInt(price6)
+            sum = parseInt(price1) + parseInt(price2) + parseInt(price3) + parseInt(price4) + parseInt(price5) + parseInt(price6)
             $('.sumP').html(sum)
         }
 
-        var count = 1;
+        $('body').on('click', '.delete-type', function() {
+            var id = $(this).data('delete')
+            $('.tr-data-' + id).remove()
+        })
 
+        var count = 1;
         function createType() {
-            var html = `<tr>
-                    <th scope="row">` + count + `</th>
+            if(count == 1){
+                var st1 = ` `;
+            }else{
+                var st1 = `<button style="margin-top: 7px;" class="badge badge-sm badge-danger delete-type" data-delete="` + count + `">X</button>`;
+            }
+            var html = `<tr class="tr-data-` + count + `">
+                    <th scope="row"></th>
                     <td>
-                        <select class="custom-select" name="paytype1`+count+`">
-                            <option selected>เลือกประเภทการชำระเงิน</option>
+                        <select class="custom-select" name="paytype1` + count + `">
+                            <option selected>เงื่อนไขการชำระเงิน</option>
                             <option value="จ่ายมัดจำก่อนเริ่มงานเป็นจำนวน">จ่ายมัดจำก่อนเริ่มงานเป็นจำนวน</option>
-                            <option value="จ่ายเมื่อจบงานเป็นจำนวน">จ่ายเมื่อจบงานเป็นจำนวน</option>
+                            <option value="จ่ายเมื่อจบงานเป็นจำนวน">การชำระเงินเต็ม 100%</option>
                             <option value="จ่ายงวดที่ 1 เป็นจำนวน">จ่ายงวดที่ 1 เป็นจำนวน</option>
                             <option value="จ่ายงวดที่ 2 เป็นจำนวน">จ่ายงวดที่ 2 เป็นจำนวน</option>
                             <option value="จ่ายงวดที่ 3 เป็นจำนวน">จ่ายงวดที่ 3 เป็นจำนวน</option>
@@ -521,25 +544,64 @@
                             <option value="จ่ายงวดที่ 10 เป็นจำนวน">จ่ายงวดที่ 10 เป็นจำนวน</option>
                         </select>
                     </td>
-                    <th scope="row"><input class="form-control" type="number" id="paytype2`+count+`" name="paytype2`+count+`"></th>
-                    <th class="m-0 delete-item-minus" scope="row">-</th>
+                    <th scope="row"><input class="form-control typeB" data-id="` + count + `" type="number" id="paytype2` + count + `" name="paytype2` + count + `"></th>
+                    <th class="m-0 delete-item-minus" scope="row">
+                        `+st1+`
+                    </th>
                 </tr>`;
 
             $('.bodyTyp').append(html)
         }
+
+        $('body').on('keyup', '.typeB', function() {
+            var id = $(this).data('id')
+            var v = $(this).val()
+            // console.log('typeB',id,v,sum);
+            // console.log('sum',sum);
+
+            
+            sumCheckType(id)
+        })
+
+        function sumCheckType(id) {
+            var typeBSum = 0;
+            var typeB = $('.typeB')
+
+            typeB.each(function( index ) {
+                var vv = $( this ).val();
+                typeBSum += parseInt(vv);
+            });
+
+            if(typeBSum > sum){
+                $('.typeB[data-id="'+id+'"]').val(null)
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ข้อมูลไม่ถูกต้อง',
+                    text: 'จำนวนเงินที่ใส่มากกว่า ยอดรวมทั้งหมด!',
+                })
+            }
+        }
+
 
         function addType() {
             count++;
 
             if (count < 11) {
                 createType()
-
             }
-
         }
 
 
         createType()
+
+        function disable(datas) {
+            document.getElementById(datas).disabled = "true";
+        }
+
+        function enable() {
+            document.getElementById(datas).disabled = "";
+        }
     </script>
 </body>
 

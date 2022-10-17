@@ -127,6 +127,7 @@
 
     // รวมเงิน
     $sum    =  z_u(number_format(array_sum($row_n[4]),2));  
+    // echo $sum;
     // ส่วนลด
     $dis    = z_u(number_format(array_sum($row_n[6]),2));  
     // ยอดเงินหลังหักส่วนลด
@@ -134,8 +135,8 @@
 
     // ภาษีมูลค่าเพิ่ม 7% :: sum x 7/100  
     if( $_POST["vat"] == 1){
-        $vat = z_u(number_format($sum * 7/100,2)); 
-        $vat_cal = z_u(number_format($sum * 7/100,2)); 
+        $vat = z_u(number_format( ($suba_dis * 7)/100,2)); 
+        $vat_cal = z_u(number_format(($suba_dis * 7)/100,2)); 
     }else{
         $vat = " - ";
     }
