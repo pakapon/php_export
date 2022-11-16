@@ -239,9 +239,46 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="row" style="padding: 10px">
+                            <div class="col-sm-12">
+                                <label class="control-label" for="2">เลขที่คำสั่งซื้อ</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input id="order" name="order" type="text" placeholder="เลขที่คำสั่งซื้อ" class="form-control" required="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             </fieldset>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="container row">
+                        <div class="d-flex flex-row">
+                            <div class="p-2">
+                                <label class="container1">
+                                    <label for="vat">ไม่มี Vat 7%</label>
+                                    <input type="radio" id="vat" name="vat" value="" checked>
+                                    <input type="checkbox" name="vat">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="p-2">
+                                <label class="container1">
+                                    <label for="vat11">มี Vat 7%</label>
+                                    <input type="radio" id="vat11" name="vat" value="1">
+                                    <input type="checkbox" name="vat11">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <table class="table table-striped" style="width: 100%;">
                 <thead>
                     <tr>
@@ -341,30 +378,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="container row">
-                        <div class="d-flex flex-row">
-                            <div class="p-2">
-                                <label class="container1">
-                                    <label for="vat">ไม่มี Vat 7%</label>
-                                    <input type="radio" id="vat" name="vat" value="" checked>
-                                    <input type="checkbox" name="vat">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="p-2">
-                                <label class="container1">
-                                    <label for="vat11">มี Vat 7%</label>
-                                    <input type="radio" id="vat11" name="vat" value="1">
-                                    <input type="checkbox" name="vat11">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-12">
                 <div class="row">
                     <div class="d-flex flex-row">
@@ -486,7 +499,7 @@
                 $('.cc[data-price3="' + v + '"]').val('');
                 sum_ = discount / 100 * price;
                 sum2 = price - sum_ * 1;
-                $('.cc[data-price2="' + v + '"]').val(sum_);
+                // $('.cc[data-price2="' + v + '"]').val(sum_);
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
 
@@ -494,7 +507,7 @@
                 $('.cc[data-discount="' + v + '"]').val('');
                 dis1 = price2 / price * 100;
                 sum2 = price - price2 * 1;
-                $('.cc[data-discount="' + v + '"]').val(dis1);
+                // $('.cc[data-discount="' + v + '"]').val(dis1);
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
 

@@ -68,12 +68,19 @@
     $row_cn[4][6] = z_u(c_u($_POST['63']) * c_u($_POST['62'])) ;
 
     // ส่วนลด%
-    $row_n[5][1] = $_POST['15'] ;
-    $row_n[5][2] = $_POST['25'] ;
-    $row_n[5][3] = $_POST['35'] ;
-    $row_n[5][4] = $_POST['45'] ;
-    $row_n[5][5] = $_POST['55'] ;
-    $row_n[5][6] = $_POST['65'] ;
+    if( empty( $_POST['15']) && !empty( $_POST['16']) ){ $row_n[5][1] = '-' ; }else{ $row_n[5][1] = $_POST['15'] ;} ;
+    if( empty( $_POST['25']) && !empty( $_POST['26']) ){ $row_n[5][2] = '-' ; }else{ $row_n[5][2] = $_POST['25'] ;} ;
+    if( empty( $_POST['35']) && !empty( $_POST['36']) ){ $row_n[5][3] = '-' ; }else{ $row_n[5][3] = $_POST['35'] ;} ;
+    if( empty( $_POST['45']) && !empty( $_POST['46']) ){ $row_n[5][4] = '-' ; }else{ $row_n[5][4] = $_POST['45'] ;} ;
+    if( empty( $_POST['55']) && !empty( $_POST['56']) ){ $row_n[5][5] = '-' ; }else{ $row_n[5][5] = $_POST['55'] ;} ;
+    if( empty( $_POST['65']) && !empty( $_POST['66']) ){ $row_n[5][6] = '-' ; }else{ $row_n[5][6] = $_POST['65'] ;} ; 
+
+    // $row_n[5][2] = $_POST['25'] ;
+    // $row_n[5][2] = $_POST['25'] ;
+    // $row_n[5][3] = $_POST['35'] ;
+    // $row_n[5][4] = $_POST['45'] ;
+    // $row_n[5][5] = $_POST['55'] ;
+    // $row_n[5][6] = $_POST['65'] ;
 
     if( empty($_POST['15']) ) { $d15 = $_POST['16'] ; }else{ $d15 = c_ud($_POST['15']) / 100 * (c_u($_POST['13']) * c_u($_POST['12'])) ;}
     if( empty($_POST['25']) ) { $d25 = $_POST['26'] ; }else{ $d25 = c_ud($_POST['25']) / 100 * (c_u($_POST['23']) * c_u($_POST['22'])) ;}
@@ -83,12 +90,18 @@
     if( empty($_POST['65']) ) { $d65 = $_POST['66'] ; }else{ $d65 = c_ud($_POST['65']) / 100 * (c_u($_POST['63']) * c_u($_POST['62'])) ;}
 
     // ส่วนลดเงิน
-    $row_n[6][1] = z_u(number_format( c_u($d15),2)) ;
-    $row_n[6][2] = z_u(number_format( c_u($d25),2)) ;
-    $row_n[6][3] = z_u(number_format( c_u($d35),2)) ;
-    $row_n[6][4] = z_u(number_format( c_u($d45),2)) ;
-    $row_n[6][5] = z_u(number_format( c_u($d55),2)) ;
-    $row_n[6][6] = z_u(number_format( c_u($d65),2)) ;
+    if( empty( $_POST['16']) && !empty( $_POST['15'] ) ){ $row_n[6][1] = '-' ; }else{ $row_n[6][1] = z_u(number_format( $_POST['16'],2)) ;} ;
+    if( empty( $_POST['26']) && !empty( $_POST['25'] ) ){ $row_n[6][2] = '-' ; }else{ $row_n[6][2] = z_u(number_format( $_POST['26'],2)) ;} ;
+    if( empty( $_POST['36']) && !empty( $_POST['35'] ) ){ $row_n[6][3] = '-' ; }else{ $row_n[6][3] = z_u(number_format( $_POST['36'],2)) ;} ;
+    if( empty( $_POST['46']) && !empty( $_POST['45'] ) ){ $row_n[6][4] = '-' ; }else{ $row_n[6][4] = z_u(number_format( $_POST['46'],2)) ;} ;
+    if( empty( $_POST['56']) && !empty( $_POST['55'] ) ){ $row_n[6][5] = '-' ; }else{ $row_n[6][5] = z_u(number_format( $_POST['56'],2)) ;} ;
+    if( empty( $_POST['66']) && !empty( $_POST['65'] ) ){ $row_n[6][6] = '-' ; }else{ $row_n[6][6] = z_u(number_format( $_POST['66'],2)) ;} ;
+    // $row_n[6][1] = z_u(number_format( c_u($d16),2)) ;
+    // $row_n[6][2] = z_u(number_format( c_u($d26),2)) ;
+    // $row_n[6][3] = z_u(number_format( c_u($d36),2)) ;
+    // $row_n[6][4] = z_u(number_format( c_u($d46),2)) ;
+    // $row_n[6][5] = z_u(number_format( c_u($d56),2)) ;
+    // $row_n[6][6] = z_u(number_format( c_u($d66),2)) ;
     
     $row_cn[6][1] = z_u($d15) ;
     $row_cn[6][2] = z_u($d25) ;
