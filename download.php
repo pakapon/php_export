@@ -1,6 +1,6 @@
 <?php
     function c_u ($data){
-        if($data == null){
+        if($data == null ){
             return 0;
         }else{
             return $data;
@@ -9,13 +9,23 @@
     }
 
     function z_u ($data){
-        if($data == 0){
+        if($data == 0 ){
             return " ";
         }else{
             return $data;
         }
         
     }
+
+    function c_ud ($data){
+        if($data == null){
+            return 1;
+        }else{
+            return $data;
+        }
+        
+    }
+
     // ชื่อบริการ
     $row_n[1][1] = $_POST['11'] ;
     $row_n[1][2] = $_POST['21'] ;
@@ -48,6 +58,15 @@
     $row_n[4][5] = z_u(number_format(c_u($_POST['53']) * c_u($_POST['52']),2)) ;
     $row_n[4][6] = z_u(number_format(c_u($_POST['63']) * c_u($_POST['62']),2)) ;
 
+
+    // เป็นเงิน
+    $row_cn[4][1] = z_u(c_u($_POST['13']) * c_u($_POST['12'])) ;
+    $row_cn[4][2] = z_u(c_u($_POST['23']) * c_u($_POST['22'])) ;
+    $row_cn[4][3] = z_u(c_u($_POST['33']) * c_u($_POST['32'])) ;
+    $row_cn[4][4] = z_u(c_u($_POST['43']) * c_u($_POST['42'])) ;
+    $row_cn[4][5] = z_u(c_u($_POST['53']) * c_u($_POST['52'])) ;
+    $row_cn[4][6] = z_u(c_u($_POST['63']) * c_u($_POST['62'])) ;
+
     // ส่วนลด%
     $row_n[5][1] = $_POST['15'] ;
     $row_n[5][2] = $_POST['25'] ;
@@ -56,21 +75,35 @@
     $row_n[5][5] = $_POST['55'] ;
     $row_n[5][6] = $_POST['65'] ;
 
-    // ส่วนลดเงิน
-    $row_n[6][1] = z_u(number_format(c_u($_POST['15']) / 100 * (c_u($_POST['13']) * c_u($_POST['12'])),2)) ;
-    $row_n[6][2] = z_u(number_format(c_u($_POST['25']) / 100 * (c_u($_POST['23']) * c_u($_POST['22'])),2)) ;
-    $row_n[6][3] = z_u(number_format(c_u($_POST['35']) / 100 * (c_u($_POST['33']) * c_u($_POST['32'])),2)) ;
-    $row_n[6][4] = z_u(number_format(c_u($_POST['45']) / 100 * (c_u($_POST['43']) * c_u($_POST['42'])),2)) ;
-    $row_n[6][5] = z_u(number_format(c_u($_POST['55']) / 100 * (c_u($_POST['53']) * c_u($_POST['52'])),2)) ;
-    $row_n[6][6] = z_u(number_format(c_u($_POST['65']) / 100 * (c_u($_POST['63']) * c_u($_POST['62'])),2)) ;
+    if( empty($_POST['15']) ) { $d15 = $_POST['16'] ; }else{ $d15 = c_ud($_POST['15']) / 100 * (c_u($_POST['13']) * c_u($_POST['12'])) ;}
+    if( empty($_POST['25']) ) { $d25 = $_POST['26'] ; }else{ $d25 = c_ud($_POST['25']) / 100 * (c_u($_POST['23']) * c_u($_POST['22'])) ;}
+    if( empty($_POST['35']) ) { $d35 = $_POST['36'] ; }else{ $d35 = c_ud($_POST['35']) / 100 * (c_u($_POST['33']) * c_u($_POST['32'])) ;}
+    if( empty($_POST['45']) ) { $d45 = $_POST['46'] ; }else{ $d45 = c_ud($_POST['45']) / 100 * (c_u($_POST['43']) * c_u($_POST['42'])) ;}
+    if( empty($_POST['55']) ) { $d55 = $_POST['56'] ; }else{ $d55 = c_ud($_POST['55']) / 100 * (c_u($_POST['53']) * c_u($_POST['52'])) ;}
+    if( empty($_POST['65']) ) { $d65 = $_POST['66'] ; }else{ $d65 = c_ud($_POST['65']) / 100 * (c_u($_POST['63']) * c_u($_POST['62'])) ;}
 
     // ส่วนลดเงิน
-    $row_n[7][1] = z_u(number_format(c_u($_POST['13']) * c_u($_POST['12']) - (c_u($_POST['15']) / 100 * (c_u($_POST['13']) * c_u($_POST['12']))),2)) ;
-    $row_n[7][2] = z_u(number_format(c_u($_POST['23']) * c_u($_POST['22']) - (c_u($_POST['25']) / 100 * (c_u($_POST['23']) * c_u($_POST['22']))),2)) ;
-    $row_n[7][3] = z_u(number_format(c_u($_POST['33']) * c_u($_POST['32']) - (c_u($_POST['35']) / 100 * (c_u($_POST['33']) * c_u($_POST['32']))),2)) ;
-    $row_n[7][4] = z_u(number_format(c_u($_POST['43']) * c_u($_POST['42']) - (c_u($_POST['45']) / 100 * (c_u($_POST['43']) * c_u($_POST['42']))),2)) ;
-    $row_n[7][5] = z_u(number_format(c_u($_POST['53']) * c_u($_POST['52']) - (c_u($_POST['55']) / 100 * (c_u($_POST['53']) * c_u($_POST['52']))),2)) ;
-    $row_n[7][6] = z_u(number_format(c_u($_POST['63']) * c_u($_POST['62']) - (c_u($_POST['65']) / 100 * (c_u($_POST['63']) * c_u($_POST['62']))),2)) ;
+    $row_n[6][1] = z_u(number_format( c_u($d15),2)) ;
+    $row_n[6][2] = z_u(number_format( c_u($d25),2)) ;
+    $row_n[6][3] = z_u(number_format( c_u($d35),2)) ;
+    $row_n[6][4] = z_u(number_format( c_u($d45),2)) ;
+    $row_n[6][5] = z_u(number_format( c_u($d55),2)) ;
+    $row_n[6][6] = z_u(number_format( c_u($d65),2)) ;
+    
+    $row_cn[6][1] = z_u($d15) ;
+    $row_cn[6][2] = z_u($d25) ;
+    $row_cn[6][3] = z_u($d35) ;
+    $row_cn[6][4] = z_u($d45) ;
+    $row_cn[6][5] = z_u($d55) ;
+    $row_cn[6][6] = z_u($d65) ;
+
+    // ส่วนลดเงิน
+    $row_n[7][1] = z_u(number_format(c_u($_POST['13']) * c_u($_POST['12']) - (c_u($d15)),2)) ;
+    $row_n[7][2] = z_u(number_format(c_u($_POST['23']) * c_u($_POST['22']) - (c_u($d25)),2)) ;
+    $row_n[7][3] = z_u(number_format(c_u($_POST['33']) * c_u($_POST['32']) - (c_u($d35)),2)) ;
+    $row_n[7][4] = z_u(number_format(c_u($_POST['43']) * c_u($_POST['42']) - (c_u($d45)),2)) ;
+    $row_n[7][5] = z_u(number_format(c_u($_POST['53']) * c_u($_POST['52']) - (c_u($d55)),2)) ;
+    $row_n[7][6] = z_u(number_format(c_u($_POST['63']) * c_u($_POST['62']) - (c_u($d65)),2)) ;
     
     // เลขคำสั่งซื้อ
     $order = $_POST["order"];
@@ -126,33 +159,44 @@
     $comment = nl2br($_POST["textarea3"]);
 
     // รวมเงิน
-    $sum    =  z_u(number_format(array_sum($row_n[4]),2));  
+    $sum    =  z_u(number_format(array_sum($row_cn[4]),2));  
+    $sum_c    =  z_u(array_sum($row_cn[4]));  
     // echo $sum;
-    // ส่วนลด
-    $dis    = z_u(number_format(array_sum($row_n[6]),2));  
-    // ยอดเงินหลังหักส่วนลด
-    $suba_dis = z_u(number_format(array_sum($row_n[7]),2)); 
 
-    // ภาษีมูลค่าเพิ่ม 7% :: sum x 7/100  
+    // ส่วนลด
+    if($dis != null){
+        $dis    = z_u(number_format(array_sum($row_cn[6]),2));  
+        $dis_c  = z_u(array_sum($row_cn[6]));  
+    }else{
+        $dis = "-";
+        $dis_c = 0;
+    }
+
+    // ยอดเงินหลังหักส่วนลด
+    $suba_dis = z_u(number_format(($sum_c - $dis_c),2)); 
+    $suba_cdis = z_u($sum_c - $dis_c); 
+
+    // ภาษีมูลค่าเพิ่ม 7% :: sum x 7/100    sum x 7/(100-7) 
     if( $_POST["vat"] == 1){
-        $vat = z_u(number_format( ($suba_dis * 7)/100,2)); 
-        $vat_cal = z_u(number_format(($suba_dis * 7)/100,2)); 
+        $vat = z_u(number_format( ($suba_cdis * 7)/107,2)); 
+        $vat_cal = z_u(($suba_cdis * 7)/107); 
     }else{
         $vat = " - ";
     }
     //รวมเงินทั้งสิ้น
-    $all_sum = z_u(number_format($sum- $dis + $vat_cal,2)) ;
+    $all_sum = z_u(number_format($sum_c - $dis_c ,2)) ;
+    $all_csum = z_u($sum_c - $dis_c ) ;
     
     //หักภาษี ณ ที่จ่าย 3% 5% :: sum x 3/(100-3)
     if( !empty($_POST["vat2_1"]) ){
-        $cut_sub = z_u(number_format($sum * $_POST["vat2_1"]/(100-3),2)) ; 
-        $cut_sub_cal = z_u(number_format($sum * $_POST["vat2_1"]/(100-3),2)) ; 
+        $cut_sub = z_u(number_format($sum_c * $_POST["vat2_1"]/(100-3),2)) ; 
+        $cut_sub_cal = z_u(number_format($sum_c * $_POST["vat2_1"]/(100-3),2)) ; 
     }else{
         $cut_sub = " - ";
     }
 
     //ยอดชำระ
-    $final = z_u(number_format($all_sum - $cut_sub_cal,2)) ;
+    $final = z_u(number_format($all_csum - $cut_sub_cal,2)) ;
 
     
 ?>
@@ -465,9 +509,14 @@
                     $ie = 1;
                     foreach($pt[1] AS $rowa){
                         if($pt[1][$ie] != null){
-                            echo " - ".$pt[1][$ie]." ".$pt[2][$ie]." % <br>";
+                            echo " - ".$pt[1][$ie]." ".$pt[2][$ie]."  <br>";
                         }
                         $ie++;
+                        $sumblack = $sumblack + $pt[2][$ie];
+                    }
+                    if($sumblack > $suba_cdis){
+                        echo "<script>window.location.href='index.php';</script>";
+                        exit;
                     }
                 ?>
             </td>

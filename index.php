@@ -266,10 +266,10 @@
                                 <td><input class="form-control cc" data-unit="' . $i . '" type="number" id="' . $i . '3" name="' . $i . '3"></td>
                                 <td><input class="form-control cc" data-price="' . $i . '" type="number" id="' . $i . '4" name="' . $i . '4" disabled></td>
                                 <td class="discount" data-id="' . $i . '">
-                                    <input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5">
+                                    <input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5" min="1">
                                 </td>
                                 <td class="price2" data-id="' . $i . '">
-                                    <input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" disabled>
+                                    <input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" min="1" disabled>
                                 </td>
                                 <td><input class="form-control cc sum" data-price3="' . $i . '" type="number" id="' . $i . '7" name="' . $i . '7" disabled></td>
                             </tr>';
@@ -478,9 +478,10 @@
             if (qty && unit) {
                 sum_ = qty * unit;
                 $('.cc[data-price="' + v + '"]').val(sum_);
+                $('.cc[data-price3="' + v + '"]').val(sum_);
             }
 
-            console.log('xxx',discount,price);
+            // console.log('xxx',discount,price);
             if (discount && price) {
                 $('.cc[data-price3="' + v + '"]').val('');
                 sum_ = discount / 100 * price;
