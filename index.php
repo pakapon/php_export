@@ -261,7 +261,7 @@
                         <div class="d-flex flex-row">
                             <div class="p-2">
                                 <label class="container1">
-                                    <label for="vat">ไม่มี Vat 7%</label>
+                                    <label for="vat">ราคาไม่รวม Vat 7%</label>
                                     <input type="radio" id="vat" name="vat" value="" checked>
                                     <input type="checkbox" name="vat">
                                     <span class="checkmark"></span>
@@ -269,7 +269,7 @@
                             </div>
                             <div class="p-2">
                                 <label class="container1">
-                                    <label for="vat11">มี Vat 7%</label>
+                                    <label for="vat11">ราคารวม Vat 7%</label>
                                     <input type="radio" id="vat11" name="vat" value="1">
                                     <input type="checkbox" name="vat11">
                                     <span class="checkmark"></span>

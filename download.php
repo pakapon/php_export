@@ -177,9 +177,11 @@
     // echo $sum;
 
     // ส่วนลด
-    if($dis != null){
+    $dis_c  = z_u(array_sum($row_cn[6]));  
+    // echo z_u(array_sum($row_cn[6]));   exit();
+    if($dis_c > 0){
         $dis    = z_u(number_format(array_sum($row_cn[6]),2));  
-        $dis_c  = z_u(array_sum($row_cn[6]));  
+        // $dis_c  = z_u(array_sum($row_cn[6]));  
     }else{
         $dis = "-";
         $dis_c = 0;
@@ -193,17 +195,22 @@
     if( $_POST["vat"] == 1){
         $vat = z_u(number_format( ($suba_cdis * 7)/107,2)); 
         $vat_cal = z_u(($suba_cdis * 7)/107); 
+        $befor_vat = z_u(number_format( $suba_cdis - $vat_cal,2)); 
+        $befor_cal = z_u( $suba_cdis - $vat_cal); 
     }else{
         $vat = " - ";
+        $befor_vat = " - ";
     }
     //รวมเงินทั้งสิ้น
     $all_sum = z_u(number_format($sum_c - $dis_c ,2)) ;
     $all_csum = z_u($sum_c - $dis_c ) ;
     
+    // echo (100+$_POST["vat2_1"])."\n";
+    // echo ($befor_vat * $_POST["vat2_1"])."\n";
     //หักภาษี ณ ที่จ่าย 3% 5% :: sum x 3/(100-3)
     if( !empty($_POST["vat2_1"]) ){
-        $cut_sub = z_u(number_format($sum_c * $_POST["vat2_1"]/(100-3),2)) ; 
-        $cut_sub_cal = z_u(number_format($sum_c * $_POST["vat2_1"]/(100-3),2)) ; 
+        $cut_sub = z_u(number_format(($befor_vat * $_POST["vat2_1"])/(100+$_POST["vat2_1"]),2)) ; 
+        $cut_sub_cal = z_u(number_format(($befor_vat * $_POST["vat2_1"])/(100+$_POST["vat2_1"]),2)) ; 
     }else{
         $cut_sub = " - ";
     }
@@ -322,7 +329,7 @@
         </tr>
         <tr>
             <td align="left" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">รายละเอียดผู้ขาย</font>
+                    <font face="Arial" color="#000001">รายละเอียดผู้ขาย</font>
                 </b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -390,7 +397,7 @@
         </tr>
         <tr>
             <td align="left" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">รายละเอียดผู้ซื้อ</font>
+                    <font face="Arial" color="#000001">รายละเอียดผู้ซื้อ</font>
                 </b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
@@ -455,25 +462,25 @@
         </tr>
         <tr>
             <td style="min-width:250px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=4 height="20" align="left" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">รายละเอียดบริการ</font>
+                    <font face="Arial" color="#000001">รายละเอียดบริการ</font>
                 </b></td>
             <td style="width:30px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">จำนวน</font>
+                    <font face="Arial" color="#000001">จำนวน</font>
                 </b></td>
             <td style="min-width:90px;  border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">ราคาต่อหน่วย</font>
+                    <font face="Arial" color="#000001">ราคาต่อหน่วย</font>
                 </b></td>
             <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">เป็นเงิน</font>
+                    <font face="Arial" color="#000001">เป็นเงิน</font>
                 </b></td>
             <td style="max-width: 20px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">ส่วนลด(%)</font>
+                    <font face="Arial" color="#000001">ส่วนลด(%)</font>
                 </b></td>
             <td style="max-width: 20px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">ส่วนลด(บาท)</font>
+                    <font face="Arial" color="#000001">ส่วนลด(บาท)</font>
                 </b></td>
             <td style="min-width:70px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="center" valign=bottom bgcolor="#F0B57A"><b>
-                    <font face="Arial" color="#FFFFFF">รวมเงิน</font>
+                    <font face="Arial" color="#000001">รวมเงิน</font>
                 </b></td>
         </tr>
         <?PHP for($x = 1; $x <= 11; $x++){ 
@@ -502,17 +509,17 @@
             <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
             <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
             <td style="border-top: 1px solid #000000;" align="left" valign=bottom><br></td>
-            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>รวมเงิน</td>
+            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>จำนวนเงินรวม</td>
             <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="right" valign=bottom "><?=$sum?>  บาท</td>
         </tr>
         
         <!-- ส่วนลด -->
         <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">เงื่อนไขการชําระเงิน</font><b></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#000001">เงื่อนไขการชําระเงิน</font><b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ส่วนลด</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$dis?>  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ส่วนลดรวม</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom ><?=$dis?>  บาท</td>
         </tr>
 
         <!-- เงื่อนไขการชําระเงิน -->
@@ -535,8 +542,10 @@
             </td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ยอดเงินหลังหักส่วนลด</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$suba_dis?>  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" bgcolor="#D3D9EC" valign=bottom><b>ราคาหลังหักส่วนลด</b></td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC" ><b><?=$suba_dis?>  บาท</b></td>
+
+
         </tr>
 
         <!-- vat -->
@@ -549,28 +558,27 @@
         <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td> 
-            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom><b>รวมเงินทั้งสิ้น</b></td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b><?=$all_sum?>  บาท</b></td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>ราคาก่อนภาษีมูลค่าเพิ่ม</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom><b><?=$befor_vat?>  บาท</b></td>
         </tr>
         
         <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>หักภาษี ณ ที่จ่าย 3%</td>
-            <td style="border-right: 1px solid #000000;" align="right" valign=bottom "><?=$cut_sub?>  บาท</td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" bgcolor="#D3D9EC" valign=bottom><b>รวมเงินทั้งสิ้น</b></td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC"><b><?=$all_sum?>  บาท</b></td>
         </tr>
         <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom><b>ยอดชำระ</b></td>
-            <td style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC""><b><?=$final?>  บาท</b></td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>หักภาษี ณ ที่จ่าย <?$_POST['vat2_1']?>%</td>
+            <td style="border-right: 1px solid #000000;" align="right" valign=bottom ><?=$cut_sub?>  บาท</td>
         </tr>
         <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
-            <td align="left" valign=bottom><br></td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom bgcolor="#D3D9EC"><b>ยอดชำระ</b></td>
+            <td style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;" align="right" valign=bottom bgcolor="#D3D9EC"><b><?=$final?>  บาท</b></td>
         </tr>
         <tr> 
             <td align="left" valign=bottom><br></td>
@@ -601,7 +609,7 @@
         
         <!-- หมายเหตุ -->
         <tr>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#FFFFFF">หมายเหตุ</font><b></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan=5 height="20" align="left" valign=bottom bgcolor="#F0B57A"><font face="Arial" color="#000001">หมายเหตุ</font><b></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
