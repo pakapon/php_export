@@ -218,6 +218,11 @@
     //ยอดชำระ
     $final = z_u(number_format($all_csum - $cut_sub_cal,2)) ;
 
+    if($_POST['image'] =='' ){
+        $image= "https://vezstorage.blob.core.windows.net/vpartner/media/images/documents/1f88cee0-cdfc-4bb6-8f6b-7eb7ee513dae";
+    }else{
+        $image=$_POST['image'];
+    }
     
 ?>
 
@@ -299,7 +304,7 @@
         <colgroup width="96"></colgroup>
         <colgroup width="126"></colgroup>
         <tr>
-            <td align="left" ><image height="150 px" src="https://vezstorage.blob.core.windows.net/vpartner/media/images/documents/1f88cee0-cdfc-4bb6-8f6b-7eb7ee513dae"></image></image></td>
+            <td align="left" ><image height="150 px" src="<?=$image?>"></image></image></td>
             <td colspan=9 height="47" style="position: relative;left:150px;" ><b>
                     <font face="Arial" size=6 color="#7B8EC5">&#3651;&#3610;&#3648;&#3626;&#3609;&#3629;&#3619;&#3634;&#3588;&#3634;</font>
                 </b></td>

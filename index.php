@@ -1,3 +1,6 @@
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
+?>
 <!DOCTYPE html>
 
 <head>
@@ -5,14 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         input {
@@ -146,7 +141,9 @@
                                 <label class="control-label" for="name">ชื่อผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย" class="form-control" required>
+                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย" class="form-control" value="<?= $company_r->name?>" required>
+                                <input id="image" name="image" type="hidden" class="form-control" value="<?= $company_r->image?>" required>
+                                <input id="access" name="access" type="hidden" class="form-control" value="<?= $_GET['access']?>" required>
                             </div>
                         </div>
                     </div>
@@ -184,7 +181,14 @@
                                 <label class="control-label" for="textarea">รายละเอียดบริษัทผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="form-control" id="textarea1" name="textarea1" required></textarea>
+                                <textarea class="form-control" id="textarea1" name="textarea1" required><?php
+                                echo    $company_r->tax->address->desc." ".
+                                        $company_r->tax->address->sub_district->name_th."\n".
+                                        $company_r->tax->address->district->name_th."\n".
+                                        $company_r->tax->address->province->name_th."\n".
+                                        $company_r->tax->address->postal_code."\n".
+                                        $company_r->mobile."\n";
+                                ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -222,7 +226,7 @@
                                 <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย" class="form-control" required>
+                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย" class="form-control" value="<?= $company_r->tax->tax_id?>" required>
                             </div>
                         </div>
                     </div>
@@ -254,7 +258,7 @@
             </div>
 
             </fieldset>
-            
+
             <div class="row">
                 <div class="col-12">
                     <div class="container row">
@@ -459,7 +463,7 @@
             var price = 0;
             var discount = 0;
             var discount2 = 0;
-            var sum_= 0;
+            var sum_ = 0;
             var price2 = 0;
 
             if (v.qty) {
@@ -533,10 +537,11 @@
         })
 
         var count = 1;
+
         function createType() {
-            if(count == 1){
+            if (count == 1) {
                 var st1 = ` `;
-            }else{
+            } else {
                 var st1 = `<button style="margin-top: 7px;" class="badge badge-sm badge-danger delete-type" data-delete="` + count + `">X</button>`;
             }
             var html = `<tr class="tr-data-` + count + `">
@@ -560,7 +565,7 @@
                     </td>
                     <th scope="row"><input class="form-control typeB" data-id="` + count + `" type="number" id="paytype2` + count + `" name="paytype2` + count + `"></th>
                     <th class="m-0 delete-item-minus" scope="row">
-                        `+st1+`
+                        ` + st1 + `
                     </th>
                 </tr>`;
 
@@ -573,7 +578,7 @@
             // console.log('typeB',id,v,sum);
             // console.log('sum',sum);
 
-            
+
             sumCheckType(id)
         })
 
@@ -581,13 +586,13 @@
             var typeBSum = 0;
             var typeB = $('.typeB')
 
-            typeB.each(function( index ) {
-                var vv = $( this ).val();
+            typeB.each(function(index) {
+                var vv = $(this).val();
                 typeBSum += parseInt(vv);
             });
 
-            if(typeBSum > sum){
-                $('.typeB[data-id="'+id+'"]').val(null)
+            if (typeBSum > sum) {
+                $('.typeB[data-id="' + id + '"]').val(null)
 
                 Swal.fire({
                     icon: 'error',
