@@ -1,4 +1,9 @@
 <?php
+if($_SERVER['SERVER_NAME'] == "doct.vez.ai"){ 
+    $url_p = "https://chatapi.weprovideall.com/company/" . $_GET['company'];
+}else{
+    $url_p = "https://chatapi.vez.ai/company/" . $_GET['company'];
+}
 
 if ($_GET['access'] != '') {
     $token =  array(
@@ -6,7 +11,6 @@ if ($_GET['access'] != '') {
     );
 
     if ($_GET['company'] != '') {
-        $url_p = "https://chatapi.vez.ai/company/" . $_GET['company'];
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url_p,
@@ -19,13 +23,16 @@ if ($_GET['access'] != '') {
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => $token,
         ));
-
         $company = curl_exec($curl);
         curl_close($curl);
         $company_r = json_decode($company);
-        // echo $company;
+        // echo $company_r;
         // print_r($company_r);
-        $company_r->image = "https://vezstorage.blob.core.windows.net/vpartner/media/".$company_r->image;
+        if( $company_r->image != '' ) {
+        $company_r->image = "https://vezstorage.blob.core.windows.net/vpartner/media/".$company_r->image; 
+        }else{
+
+        }
     }
 
     if ($_GET["id"] != '') {
