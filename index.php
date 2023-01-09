@@ -212,7 +212,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                                 <label class="control-label" for="2">เลขที่ใบเสนอราคา</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="order" name="order" type="text" placeholder="เลขที่ใบเสนอราคา" class="form-control" required="">
+                                <input id="qtid" name="qtid" type="text" placeholder="เลขที่ใบเสนอราคา" class="form-control" required="">
                             </div>
                         </div>
                     </div>

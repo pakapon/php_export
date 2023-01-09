@@ -121,6 +121,9 @@
     // เลขคำสั่งซื้อ
     $order = $_POST["order"];
 
+    // เลขที่ใบเสนอราคา
+    $quotation = $_POST["qtid"];
+
     // ชื่อ บ ผู้ขาย
     $sale_n = $_POST["name1"];
     $sale_d = nl2br($_POST["textarea1"]) ;
@@ -345,8 +348,8 @@
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="right" colspan="2" valign=bottom>เลขคำสั่งซื้อ</td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$order?></td>
+            <td align="right" colspan="2" valign=bottom>เลขที่ใบเสนอราคา</td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$quotation?></td>
         </tr>
         <tr>
             <td align="left" rowspan="6" valign=TOP>
@@ -360,16 +363,18 @@
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="right" colspan="2" valign=bottom>&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;</td> 
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" align="center"><?=$dates?></td>
+            <td align="right" colspan="2" valign=bottom>เลขคำสั่งซื้อ</td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$order?></td>
         </tr>
         <tr>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="center" valign=bottom><br></td>
-            <td align="center" valign=bottom sdnum="1033;0;M/D/YYYY"><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="left" valign=bottom><br></td>
+            <td align="right" colspan="2" valign=bottom>&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;</td> 
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" align="center"><?=$dates?></td>
         </tr>
         <tr>
             <td align="left" valign=bottom><br></td>
