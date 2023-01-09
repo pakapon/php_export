@@ -169,8 +169,11 @@
     $pt[2][10] = $_POST["paytype210"] ;
 
     // หมายเหตุ
-    $comment = nl2br($_POST["textarea3"]);
-
+    if($_POST["textarea3"] != ''){
+        $comment = nl2br($_POST["textarea3"]);
+    }else{
+        $comment = null;
+    }
     // รวมเงิน
     $sum    =  z_u(number_format(array_sum($row_cn[4]),2));  
     $sum_c    =  z_u(array_sum($row_cn[4]));  
@@ -293,7 +296,7 @@
     </style>
 
 </head>
-
+-
 <body>
     <table cellspacing="0" border="0">
         <colgroup width="344"></colgroup>
