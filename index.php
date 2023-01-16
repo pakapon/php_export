@@ -141,9 +141,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                                 <label class="control-label" for="name">ชื่อผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย" class="form-control" value="<?= $company_r->name?>" required>
-                                <input id="image" name="image" type="hidden" class="form-control" value="<?= $company_r->image?>" required>
-                                <input id="access" name="access" type="hidden" class="form-control" value="<?= $_GET['access']?>" required>
+                                <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย" class="form-control" value="<?= $company_r->name ?>" required>
+                                <input id="image" name="image" type="hidden" class="form-control" value="<?= $company_r->image ?>" required>
+                                <input id="access" name="access" type="hidden" class="form-control" value="<?= $_GET['access'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -182,13 +182,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                             </div>
                             <div class="col-sm-12">
                                 <textarea class="form-control" id="textarea1" name="textarea1" required><?php
-                                echo    $company_r->tax->address->desc." ".
-                                        $company_r->tax->address->sub_district->name_th."\n".
-                                        $company_r->tax->address->district->name_th."\n".
-                                        $company_r->tax->address->province->name_th."\n".
-                                        $company_r->tax->address->postal_code."\n".
-                                        $company_r->mobile."\n";
-                                ?></textarea>
+                                                                                                        echo    $company_r->tax->address->desc . " " .
+                                                                                                            $company_r->tax->address->sub_district->name_th . "\n" .
+                                                                                                            $company_r->tax->address->district->name_th . "\n" .
+                                                                                                            $company_r->tax->address->province->name_th . "\n" .
+                                                                                                            $company_r->tax->address->postal_code . "\n" .
+                                                                                                            $company_r->mobile . "\n";
+                                                                                                        ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                                 <label class="control-label" for="name">เลขประจำตัวผู้เสียภาษีผู้ขาย:</label>
                             </div>
                             <div class="col-sm-12">
-                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย" class="form-control" value="<?= $company_r->tax->tax_id?>" required>
+                                <input id="tex1" name="tex1" type="text" placeholder="เลขประจำตัวผู้เสียภาษีผู้ขาย" class="form-control" value="<?= $company_r->tax->tax_id ?>" required>
                             </div>
                         </div>
                     </div>
@@ -572,15 +572,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
             $('.bodyTyp').append(html)
         }
 
-        $('body').on('keyup', '.typeB', function() {
-            var id = $(this).data('id')
-            var v = $(this).val()
-            // console.log('typeB',id,v,sum);
-            // console.log('sum',sum);
-
-
-            sumCheckType(id)
-        })
+        let hasError = false;
 
         function sumCheckType(id) {
             var typeBSum = 0;
@@ -593,14 +585,54 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
 
             if (typeBSum != sum) {
                 $('.typeB[data-id="' + id + '"]').val(null)
-
+                hasError = true;
                 Swal.fire({
                     icon: 'error',
                     title: 'ข้อมูลไม่ถูกต้อง',
                     text: 'จำนวนเงินที่ใส่มากกว่า ยอดรวมทั้งหมด!',
                 })
+            } else {
+                hasError = false;
             }
         }
+
+        $('form').on('submit', function(event) {
+            event.preventDefault();
+            var id = $(this).find('.typeB').data('id');
+            sumCheckType(id);
+            if (hasError == false) {
+                this.submit(); // submit the form if the sumCheckType function returns no errors
+            }
+        });
+        // let timeoutId;
+        // $('body').on('keyup', '.typeB', function() {
+        //     clearTimeout(timeoutId);
+        //     var id = $(this).data('id');
+        //     var v = $(this).val();
+        //     timeoutId = setTimeout(function() {
+        //         sumCheckType(id);
+        //     }, 1000); // delay of 2 seconds
+        // });
+
+        // function sumCheckType(id) {
+        //     var typeBSum = 0;
+        //     var typeB = $('.typeB')
+
+        //     typeB.each(function(index) {
+        //         var vv = $(this).val();
+        //         typeBSum += parseInt(vv);
+        //     });
+
+        //     if (typeBSum != sum) {
+        //         $('.typeB[data-id="' + id + '"]').val(null)
+
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'ข้อมูลไม่ถูกต้อง',
+        //             text: 'จำนวนเงินที่ใส่มากกว่า ยอดรวมทั้งหมด!',
+        //         })
+        //     }
+        // }
 
 
         function addType() {
