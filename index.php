@@ -591,7 +591,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 typeBSum += parseInt(vv);
             });
 
-            if (typeBSum > sum) {
+            if (typeBSum != sum) {
                 $('.typeB[data-id="' + id + '"]').val(null)
 
                 Swal.fire({
