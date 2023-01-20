@@ -206,21 +206,22 @@
     }else{
         $vat = " - ";
         $befor_vat = " - ";
+        $befor_cal = $suba_cdis;
     }
     //รวมเงินทั้งสิ้น
     $all_sum = z_u(number_format($sum_c - $dis_c ,2)) ;
     $all_csum = z_u($sum_c - $dis_c ) ;
     
-    // echo (100+$_POST["vat2_1"])."\n";
-    // echo ($befor_vat * $_POST["vat2_1"])."\n";
+    // echo (100+$_POST["vat2_1"])." :1\n";
+    // echo ($befor_cal * $_POST["vat2_1"])." :2\n";
     //หักภาษี ณ ที่จ่าย 3% 5% :: sum x 3/(100-3)
     if( !empty($_POST["vat2_1"]) ){
-        $cut_sub = z_u(number_format(($befor_vat * $_POST["vat2_1"])/(100+$_POST["vat2_1"]),2)) ; 
-        $cut_sub_cal = z_u(number_format(($befor_vat * $_POST["vat2_1"])/(100+$_POST["vat2_1"]),2)) ; 
+        $cut_sub = z_u(number_format(($befor_cal * $_POST["vat2_1"])/(100+$_POST["vat2_1"]),2)) ;
+        $cut_sub_cal = z_u(number_format(($befor_cal * $_POST["vat2_1"])/(100+$_POST["vat2_1"]),2)) ;
     }else{
-        $cut_sub = " - ";
+        $cut_sub = " - "; 
     }
-
+    // echo $cut_sub." :3\n";exit();
     //ยอดชำระ
     $final = z_u(number_format($all_csum - $cut_sub_cal,2)) ;
 

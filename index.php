@@ -396,8 +396,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                         <div class="p-2">
                             <label class="container1">
                                 <label for="vat3">มีหัก ณ ที่จ่าย</label>
-                                <input type="radio" class="checkRadio" id="vat3" name="vat2" value="1">
-                                <input type="checkbox" name="vat3">
+                                <input type="radio" class="checkRadio" id="vat2" name="vat2" value="1">
+                                <input type="checkbox" name="vat2">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -527,7 +527,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
             var price5 = $('.cc[data-price3="5"]').val() ? $('.cc[data-price3="5"]').val() : 0;
             var price6 = $('.cc[data-price3="6"]').val() ? $('.cc[data-price3="6"]').val() : 0;
 
-            sum = parseInt(price1) + parseInt(price2) + parseInt(price3) + parseInt(price4) + parseInt(price5) + parseInt(price6)
+            sum = parseFloat(price1) + parseFloat(price2) + parseFloat(price3) + parseFloat(price4) + parseFloat(price5) + parseFloat(price6)
             $('.sumP').html(sum)
         }
 
@@ -589,7 +589,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 Swal.fire({
                     icon: 'error',
                     title: 'ข้อมูลไม่ถูกต้อง',
-                    text: 'จำนวนเงินที่ใส่มากกว่า ยอดรวมทั้งหมด!',
+                    text: 'จำนวนเงินที่ใส่ไม่เท่ากับ ยอดรวมทั้งหมด!',
                 })
             } else {
                 hasError = false;
