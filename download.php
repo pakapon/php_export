@@ -585,7 +585,7 @@
         <tr> 
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>หักภาษี ณ ที่จ่าย <?$_POST['vat2_1']?>%</td>
+            <td style="border-right: 1px solid #000000;" align="left" colspan="2" valign=bottom>หักภาษี ณ ที่จ่าย <?=$_POST['vat2_1']?>%</td>
             <td style="border-right: 1px solid #000000;" align="right" valign=bottom ><?=$cut_sub?>  บาท</td>
         </tr>
         <tr> 
