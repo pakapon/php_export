@@ -515,6 +515,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
 
+            if(sum2 <= 0) {
+                hasError = true;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ข้อมูลไม่ถูกต้อง',
+                    text: 'จำนวนเงินรวมติดลบ!',
+                });
+            }
+
             sumPrice();
 
         })
@@ -604,35 +613,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 this.submit(); // submit the form if the sumCheckType function returns no errors
             }
         });
-        // let timeoutId;
-        // $('body').on('keyup', '.typeB', function() {
-        //     clearTimeout(timeoutId);
-        //     var id = $(this).data('id');
-        //     var v = $(this).val();
-        //     timeoutId = setTimeout(function() {
-        //         sumCheckType(id);
-        //     }, 1000); // delay of 2 seconds
-        // });
-
-        // function sumCheckType(id) {
-        //     var typeBSum = 0;
-        //     var typeB = $('.typeB')
-
-        //     typeB.each(function(index) {
-        //         var vv = $(this).val();
-        //         typeBSum += parseInt(vv);
-        //     });
-
-        //     if (typeBSum != sum) {
-        //         $('.typeB[data-id="' + id + '"]').val(null)
-
-        //         Swal.fire({
-        //             icon: 'error',
-        //             title: 'ข้อมูลไม่ถูกต้อง',
-        //             text: 'จำนวนเงินที่ใส่มากกว่า ยอดรวมทั้งหมด!',
-        //         })
-        //     }
-        // }
 
 
         function addType() {
