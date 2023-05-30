@@ -226,7 +226,8 @@
     $final = z_u(number_format($all_csum - $cut_sub_cal,2)) ;
 
     if($_POST['image'] =='' ){
-        $image= "https://vezstorage.blob.core.windows.net/vpartner/media/images/documents/1f88cee0-cdfc-4bb6-8f6b-7eb7ee513dae";
+        // $image= "https://vezstorage.blob.core.windows.net/vpartner/media/images/documents/1f88cee0-cdfc-4bb6-8f6b-7eb7ee513dae";
+        $image= "";
     }else{
         $image=$_POST['image'];
     }
@@ -311,7 +312,17 @@
         <colgroup width="96"></colgroup>
         <colgroup width="126"></colgroup>
         <tr>
-            <td align="left" ><image height="150 px" src="<?=$image?>"></image></image></td>
+
+            <td align="left" >
+                <?php 
+                    if($image){
+                ?>
+                <image height="150 px" src="<?=$image?>">
+                <?php    
+                    }
+                ?>
+
+            </td>
             <td colspan=9 height="47" style="position: relative;left:150px;" ><b>
                     <font face="Arial" size=6 color="#7B8EC5">&#3651;&#3610;&#3648;&#3626;&#3609;&#3629;&#3619;&#3634;&#3588;&#3634;</font>
                 </b></td>
@@ -350,7 +361,7 @@
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="right" colspan="2" valign=bottom>เลขที่ใบเสนอราคา</td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$quotation?></td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$quotation?></td>
         </tr>
         <tr>
             <td align="left" rowspan="6" valign=TOP>
@@ -364,8 +375,8 @@
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
             <td align="left" valign=bottom><br></td>
-            <td align="right" colspan="2" valign=bottom>เลขคำสั่งซื้อ</td>
-            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$order?></td>
+            <!-- <td align="right" colspan="2" valign=bottom>เลขคำสั่งซื้อ</td>
+            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" align="center" ><?=$order?></td> -->
         </tr>
         <tr>
             <td align="left" valign=bottom><br></td>
@@ -715,7 +726,7 @@
     <!-- ************************************************************************** -->
     <br><br><br><br>
     <button class="noprint" onclick="window.print()">Print this page Or Save to PDF</button>
-    <image height="30 px" class="print printOnly" style="position: absolute; right: 0px; bottom: 0px;"  src="sendby.png"></image>
+    <image height="30 px" class="print printOnly" style="position: absolute; right: 0px; bottom: 0px;"  src="sendby_new.png"></image>
 </body>
 
 </html>

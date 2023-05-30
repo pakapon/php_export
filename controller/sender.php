@@ -5,9 +5,9 @@ if($_SERVER['SERVER_NAME'] == "doct.vez.ai"){
     $url_p = "https://chatapi.vez.ai/company/" . $_GET['company'];
 }
 
-if ($_GET['access'] != '') {
+if ($_GET['token'] != '') {
     $token =  array(
-        'Authorization: Bearer ' . $_GET['access']
+        'Authorization: Bearer ' . $_GET['token']
     );
 
     if ($_GET['company'] != '') {

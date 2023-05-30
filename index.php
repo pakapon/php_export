@@ -143,7 +143,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                             <div class="col-sm-12">
                                 <input id="name1" name="name1" type="text" placeholder="ชื่อผู้ขาย" class="form-control" value="<?= $company_r->name ?>" required>
                                 <input id="image" name="image" type="hidden" class="form-control" value="<?= $company_r->image ?>" required>
-                                <input id="access" name="access" type="hidden" class="form-control" value="<?= $_GET['access'] ?>" required>
+                                <input id="token" name="token" type="hidden" class="form-control" value="<?= $_GET['token'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -243,7 +243,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <!-- <div class="col-sm-4">
                     <div class="form-group">
                         <div class="row" style="padding: 10px">
                             <div class="col-sm-12">
@@ -254,7 +254,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             </fieldset>
@@ -302,14 +302,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                         echo
                         '<tr>
                                 <th scope="row">' . $i . '</th>
-                                <td><input class="form-control" type="text" id="' . $i . '1" name="' . $i . '1"></td>
+                                <td class="fill_name" data-id="' . $i . '"><input class="form-control" type="text" id="' . $i . '1" name="' . $i . '1"></td>
                                 <td><input class="form-control cc" data-qty="' . $i . '" type="number" id="' . $i . '2" name="' . $i . '2"></td>
                                 <td><input class="form-control cc" data-unit="' . $i . '" type="number" id="' . $i . '3" name="' . $i . '3"></td>
                                 <td><input class="form-control cc" data-price="' . $i . '" type="number" id="' . $i . '4" name="' . $i . '4" disabled></td>
-                                <td class="discount" data-id="' . $i . '">
-                                    <input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5" min="1">
+                                <td class="discount" data-id="' . $i . '" data-discount="' . $i . '">
+                                    <input class="form-control cc" data-discount="' . $i . '" type="number" id="' . $i . '5" name="' . $i . '5">
                                 </td>
-                                <td class="price2" data-id="' . $i . '">
+                                <td class="price2" data-id="' . $i . '" data-price2="' . $i . '">
                                     <input class="form-control cc" data-price2="' . $i . '" type="number" id="' . $i . '6" name="' . $i . '6" min="1" disabled>
                                 </td>
                                 <td><input class="form-control cc sum" data-price3="' . $i . '" type="number" id="' . $i . '7" name="' . $i . '7" disabled></td>
@@ -343,8 +343,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 </tbody>
             </table>
 
-            <div class="container h-100">
-                <div class="row h-100 justify-content-center align-items-center">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
                     <div class="add-item" onclick="addType()">
                         <h5 class="m-0 add-item-plus">+</h5>
                     </div>
@@ -415,7 +415,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 </div>
             </div>
 
-            <div class="col-4 mt-4"> <button type="submit" class="btn btn-lg btn-success" style="width: 100%" value="">สร้างใบเสนอราคา</button> </div>
+            <div class="col-4 mt-4 mb-4"> <button type="submit" class="btn btn-lg btn-success" style="width: 100%" value="">สร้างใบเสนอราคา</button> </div>
         </form>
     </div>
 
@@ -428,23 +428,40 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
         var sum = 0;
+
+        $('body').on('click', '.fill_name', function() {
+            var id = $(this).data('id')
+
+            var discount = $('.cc[data-discount="' + id + '"]').val();
+            if(!discount){
+                $('.cc[data-discount="' + id + '"]').val(0);
+            }
+        })
+
         $('body').on('click', '.discount', function() {
             var id = $(this).data('id')
 
-            $('.cc[data-discount="' + id + '"]').prop('disabled', false);
+            $('.cc[data-discount="' + id + '"]').prop('disabled', false).val(0);
             $('.cc[data-price2="' + id + '"]').prop('disabled', true).val(null);
+            // calPriceFunction()
+
+            var v = $(this).data();
+            calPriceFunction(v)
         })
 
         $('body').on('click', '.price2', function() {
             var id = $(this).data('id')
 
             $('.cc[data-discount="' + id + '"]').prop('disabled', true).val(null);
-            $('.cc[data-price2="' + id + '"]').prop('disabled', false);
+            $('.cc[data-price2="' + id + '"]').prop('disabled', false).val(0);
+            
+            var v = $(this).data();
+            calPriceFunction(v)
         })
-
 
         $('body').on('change', '.checkRadio', function() {
             var v = $(this).val()
@@ -455,17 +472,24 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
             }
         })
 
-
         $('body').on('keyup', '.cc', function() {
             var v = $(this).data();
+            calPriceFunction(v)
+        })
+
+        function calPriceFunction(v) {
+            console.log('calPriceFunction',v);
+            // var v = $(this).data();
             var qty = 0;
             var unit = 0;
             var price = 0;
             var discount = 0;
             var discount2 = 0;
             var sum_ = 0;
+            var sum2 = 0;
             var price2 = 0;
 
+            console.log('sum2 1 => ', sum2);
             if (v.qty) {
                 v = v.qty;
                 qty = $('.cc[data-qty="' + v + '"]').val();
@@ -491,7 +515,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
             }
 
             // Callcuator
-
             if (qty && unit) {
                 sum_ = qty * unit;
                 $('.cc[data-price="' + v + '"]').val(sum_);
@@ -515,18 +538,19 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                 $('.cc[data-price3="' + v + '"]').val(sum2);
             }
 
-            if(sum2 <= 0) {
-                hasError = true;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'ข้อมูลไม่ถูกต้อง',
-                    text: 'จำนวนเงินรวมติดลบ!',
-                });
-            }
+            // console.log('sum2 .1 => ');
+            // console.log('sum2 2 => ', sum2);
+            // if(sum2 <= 0) {
+            //     hasError = true;
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'ข้อมูลไม่ถูกต้อง',
+            //         text: 'จำนวนเงินรวมติดลบ!',
+            //     });
+            // }
 
             sumPrice();
-
-        })
+        }
 
         function sumPrice() {
             var price1 = $('.cc[data-price3="1"]').val() ? $('.cc[data-price3="1"]').val() : 0;
@@ -572,13 +596,23 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
                             <option value="จ่ายงวดที่ 10 เป็นจำนวน">จ่ายงวดที่ 10 เป็นจำนวน</option>
                         </select>
                     </td>
-                    <th scope="row"><input class="form-control typeB" data-id="` + count + `" type="number" id="paytype2` + count + `" name="paytype2` + count + `"></th>
+                    <th scope="row"><input class="form-control typeB" data-id="` + count + `" type="text" id="paytype2` + count + `" name="paytype2` + count + `" oninput="validateInput()"></th>
                     <th class="m-0 delete-item-minus" scope="row">
                         ` + st1 + `
                     </th>
                 </tr>`;
 
             $('.bodyTyp').append(html)
+        }
+
+        function validateInput() {
+            var inputValue = document.getElementById("paytype21").value;
+            var isValid = /^\d*\.?\d*$/.test(inputValue); // Regular expression to check if the input is a valid decimal number
+
+            if (!isValid) {
+                alert("Please enter a valid numeric value.");
+                // You can choose to clear the input field or revert to the previous valid value if desired
+            }
         }
 
         let hasError = false;
@@ -589,9 +623,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
 
             typeB.each(function(index) {
                 var vv = $(this).val();
-                typeBSum += parseInt(vv);
+                console.log('loop typeBSum 1 => ',vv);
+                typeBSum += parseFloat(vv);
+                console.log('loop typeBSum 2 => ',typeBSum);
             });
 
+            console.log("typeBSum",typeBSum);
+            console.log("sum",sum);
             if (typeBSum != sum) {
                 $('.typeB[data-id="' + id + '"]').val(null)
                 hasError = true;
@@ -632,6 +670,35 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controller/sender.php';
 
         function enable() {
             document.getElementById(datas).disabled = "";
+        }
+
+        get_quotation()
+        function get_quotation() {
+            axios.get('/controller/get_quotation.php')
+            .then(function (response) {
+                console.log(response.data);
+                $('#qtid').val(response.data)
+            })
+            .catch(function (error) {
+                console.log('error',error);
+            });
+
+		}
+
+        // setDevData()
+        function setDevData(){
+            $('#name1').val('-------- TEST --------');
+            $('#name2').val('-------- TEST --------');
+
+            var today = new Date().toISOString().split('T')[0];
+            $('#d2').val(today);
+
+            $('#textarea1').val('-------- TEST --------');
+            $('#textarea2').val('-------- TEST --------');
+
+            $('#tex1').val('-------- TEST --------');
+            $('#tex2').val('-------- TEST --------');
+
         }
     </script>
 </body>
